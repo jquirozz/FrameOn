@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import NavBar from "./components/NavBar";
@@ -8,10 +9,12 @@ import NotFound from "./pages/NotFound";
 import "./App.css";
 
 export default function App() {
+  const [query, setQuery] = useState("");
+
   return (
     <div className="App">
-      <NavBar />
       <BrowserRouter>
+        <NavBar setQuery={setQuery} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
