@@ -1,8 +1,6 @@
 .Feed {
     main {
         padding: clamp(1rem, 5vw, 4rem);
-        padding-bottom: .75rem;
-
     }
 
     #infiniteScrollWrap {

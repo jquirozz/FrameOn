@@ -11,8 +11,9 @@ export function usePhotos(query = "Christmas", page = 1) {
   const [info, setInfo] = useState({ total: 0, total_page: 0, hasMore: true });
 
   useEffect(() => {
-    console.log(query, page);
-  }, [query, page]);
+    setPhotos([]);
+    setInfo({ total: 0, total_page: 0, hasMore: true });
+  }, [query]);
 
   useEffect(() => {
     const fetchPhotos = async () => {

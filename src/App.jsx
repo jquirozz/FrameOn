@@ -1,9 +1,22 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useParams,
+} from "react-router-dom";
 
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
 import Feed from "./pages/Feed";
+import Collections from "./pages/Collections";
+import Collection from "./pages/Collection";
+
+import User from "./pages/User";
+import UserPhotos from "./components/User/UserPhotos";
+import UserCollections from "./components/User/UserCollections";
+import UserLikes from "./components/User/UserLikes";
 
 import "./App.css";
 
@@ -18,8 +31,27 @@ export default function App() {
           <Route path="/feed" element={<Feed />}>
             <Route path=":query" element={<Feed />} />
           </Route>
+
+          <Route path="/user/:username" element={<User />}>
+            <Route index element={<RedirectToPhotos />} />
+            <Route path="photos" element={<UserPhotos />} />
+            <Route path="collections" element={<UserCollections />} />
+            <Route path="likes" element={<UserLikes />} />
+            <Route
+              path="*"
+              element={<Navigate to="/user/:username/photos" replace={true} />}
+            />
+          </Route>
+
+          <Route path="/collections" element={<Collections />} />
+          <Route path="/collection/:collectionId" element={<Collection />} />
         </Routes>
       </BrowserRouter>
     </div>
   );
+}
+
+function RedirectToPhotos() {
+  const { username } = useParams();
+  return <Navigate to={`/user/${username}/photos`} replace />;
 }
