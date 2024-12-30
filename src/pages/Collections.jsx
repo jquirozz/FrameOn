@@ -1,4 +1,3 @@
-import NavBar from "../components/NavBar";
 import CollectionsGallery from "../components/CollectionsGallery";
 
 import { useCollections } from "../hooks/useCollections";
@@ -10,7 +9,6 @@ export default function Collections() {
 
   return (
     <div className="Collections">
-      <NavBar />
       <main>
         <CollectionsGallery collections={collections} />
       </main>

@@ -13,7 +13,6 @@ export default function SearchBar() {
 
   const handleInputChange = (e) => {
     // Input validation
-
     const regex = /^[A-Za-z0-9\s]*$/; // A-Z || a-z || 0-9
     const isValid = regex.test(e.target.value);
     isValid && setInputValue(e.target.value);
@@ -32,7 +31,7 @@ export default function SearchBar() {
     if (search) {
       navigate(`/feed/${search}`);
     }
-  }, [search, navigate]);
+  }, [search]);
 
   return (
     <section className="SearchBar">

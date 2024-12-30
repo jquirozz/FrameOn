@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import NavBar from "../components/NavBar";
 import Masonry from "../components/Masonry";
 
 import { usePhotos } from "../hooks/usePhotos";
@@ -16,7 +15,6 @@ export default function Feed() {
 
   return (
     <div className="Feed">
-      <NavBar />
       <main id="infiniteScrollWrap">
         <InfiniteScroll
           dataLength={photos.length}
