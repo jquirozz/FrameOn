@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import useDebounce from "./../hooks/useDebounce";
 
@@ -9,6 +9,7 @@ import { IoSearch, IoClose } from "react-icons/io5";
 export default function SearchBar() {
   const [inputValue, setInputValue] = useState("");
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const search = useDebounce(inputValue);
 
   const handleInputChange = (e) => {
@@ -32,6 +33,11 @@ export default function SearchBar() {
       navigate(`/feed/${search}`);
     }
   }, [search]);
+
+  useEffect(() => {
+    const isFeedPage = location.pathname.startsWith("/feed");
+    !isFeedPage && setInputValue("");
+  }, [pathname]);
 
   return (
     <section className="SearchBar">

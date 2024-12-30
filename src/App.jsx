@@ -36,17 +36,15 @@ export default function App() {
           </Route>
 
           <Route path="/user/:username" element={<User />}>
-            <Route index element={<RedirectToPhotos />} />
             <Route path="photos" element={<UserPhotos />} />
             <Route path="collections" element={<UserCollections />} />
             <Route path="likes" element={<UserLikes />} />
-            <Route
-              path="*"
-              element={<Navigate to="/user/:username/photos" replace={true} />}
-            />
+
+            <Route index element={<RedirectToPhotos />} />
           </Route>
 
           <Route path="/collections" element={<Collections />} />
+
           <Route path="/collection/:collectionId" element={<Collection />} />
         </Routes>
       </BrowserRouter>
