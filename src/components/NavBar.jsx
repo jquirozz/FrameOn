@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 
 import "./styles/NavBar.css";
 
-export default function NavBar({ setQuery }) {
+export default function NavBar() {
   const [menu, setMenu] = useState(false);
 
   const handleMenuToggle = () => {
@@ -18,7 +18,7 @@ export default function NavBar({ setQuery }) {
         <img src="/logo/logo_transparent.png" />
       </Link>
 
-      <SearchBar setQuery={setQuery} />
+      <SearchBar />
 
       <button className="profile" onClick={handleMenuToggle} />
 

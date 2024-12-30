@@ -1,0 +1,28 @@
+.Masonry {
+    position: relative;
+    columns: 300px;
+
+    .gallery {
+        .wrap {
+            margin-bottom: .75rem;
+
+            overflow: hidden;
+            border-radius: 10px;
+
+            cursor: pointer;
+            background-color: #EEE;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+/* Post */
+
+@media (max-width: 400px) {
+    .Masonry {
+        columns: 180px;
+    }
+}

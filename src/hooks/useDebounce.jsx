@@ -5,7 +5,8 @@ export default function useDebounce(input, delay = 600) {
 
   useEffect(() => {
     const debouncer = setTimeout(() => {
-      setValue(input);
+      const newValue = input.toLowerCase();
+      setValue(newValue);
     }, delay);
 
     return () => {
