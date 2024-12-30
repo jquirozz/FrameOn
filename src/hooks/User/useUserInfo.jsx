@@ -18,6 +18,7 @@ export function useUserInfo(username) {
         username,
       });
 
+      console.log(resInfo.response);
       setInfo(resInfo.response);
     } catch (error) {
       console.error(error);

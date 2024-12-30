@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import Masonry from "../components/Masonry";
+import Loading from "../components/Loading";
 
 import { usePhotos } from "../hooks/usePhotos";
 
@@ -20,7 +21,7 @@ export default function Feed() {
           dataLength={photos.length}
           next={() => setPage(page + 1)}
           hasMore={info.hasMore}
-          loader={<h4>Loading...</h4>}
+          loader={<Loading />}
           scrollableTarget="infiniteScrollWrap"
         >
           <Masonry photos={photos} />

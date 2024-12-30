@@ -23,7 +23,7 @@ export default function User() {
   const { username } = useParams();
   const { info, loading } = useUserInfo(username);
 
-  const [isFollowing, setIsFollowing] = useState(false);
+  const [isFollowing, setIsFollowing] = useState(info.followed_by_user);
 
   const handleFollow = () => {
     setIsFollowing(!isFollowing);
