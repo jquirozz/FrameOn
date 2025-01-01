@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-import Gallery from "../components/Gallery";
+import Gallery from "../components/Gallery/PhotosGallery";
 
 import { usePhotos } from "../hooks/usePhotos";
 

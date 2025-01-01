@@ -1,7 +1,7 @@
 .CollectionsGallery {
     .collections {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
         gap: 1rem;
 
@@ -16,7 +16,7 @@
             overflow: hidden;
             border-radius: 10px;
 
-            background-color: #222;
+            background-color: #555;
 
             img {
                 position: absolute;

@@ -139,7 +139,7 @@
         }
     }
 
-    main {
+    footer {
         display: grid;
         gap: 1rem;
 
@@ -185,14 +185,11 @@
 
 @media (max-width: 700px) {
     .User {
-        main {
-            display: grid;
-            gap: 1rem;
-
+        footer {
             nav {
                 a {
                     grid-template-columns: auto;
-                    place-content: center;
+                    justify-content: center;
 
                     svg {}
 
@@ -201,7 +198,13 @@
                     }
                 }
 
-                .active {}
+                .active:first-child {
+                    justify-content: left;
+                }
+
+                .active:last-child {
+                    justify-content: right;
+                }
             }
         }
     }

@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 
-import Gallery from "../components/Gallery";
+import PhotosGallery from "../components/Gallery/PhotosGallery";
 import Loading from "../components/Loading";
 
 import { useCollectionPhotos } from "../hooks/useCollectionPhotos";
@@ -34,7 +34,7 @@ export default function Collection() {
         <p>{info.description}</p>
       </header>
       <main>
-        <Gallery
+        <PhotosGallery
           photos={photos}
           page={page}
           setPage={setPage}

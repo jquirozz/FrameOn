@@ -1,17 +1,14 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-import CollectionsGallery from "../CollectionsGallery";
-import Loading from "../Loading";
+import CollectionsGallery from "../Gallery/CollectionsGallery";
 
 import { useUserCollections } from "../../hooks/useUser";
 
 export default function UserCollections() {
   const [page, setPage] = useState(1);
   const { username } = useParams();
-  const { data, loading, hasMore } = useUserCollections(username, page);
-
-  if (loading) return <Loading />;
+  const { data, hasMore, loading } = useUserCollections(username, page);
 
   return (
     <div className="UserCollections">
@@ -20,6 +17,7 @@ export default function UserCollections() {
         page={page}
         setPage={setPage}
         hasMore={hasMore}
+        loading={loading}
       />
     </div>
   );

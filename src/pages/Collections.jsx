@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import CollectionsGallery from "../components/CollectionsGallery";
+import CollectionsGallery from "../components/Gallery/CollectionsGallery";
 import Loading from "../components/Loading";
 
 import { useCollections } from "../hooks/useCollections";

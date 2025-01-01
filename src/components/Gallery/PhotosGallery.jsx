@@ -1,13 +1,20 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import Post from "./Post";
-import Image from "./Image";
-import Loading from "./Loading";
+import Post from "../Post";
+import Image from "../Image";
+import Loading from "../Loading";
+import SkeletonGallery from "./SkeletonGallery";
 
-import "./styles/Gallery.css";
+import "./PhotosGallery.css";
 
-export default function Gallery({ photos, page, setPage, hasMore }) {
+export default function PhotosGallery({
+  photos,
+  page,
+  setPage,
+  hasMore,
+  loading,
+}) {
   const [selected, setSelected] = useState({});
   const [isOpen, setIsOpen] = useState(false);
 
@@ -18,12 +25,10 @@ export default function Gallery({ photos, page, setPage, hasMore }) {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    console.log(page);
-  }, [page]);
+  if (loading) return <SkeletonGallery />;
 
   return (
-    <div className="Gallery">
+    <div className="PhotosGallery">
       <InfiniteScroll
         dataLength={photos.length}
         next={() => setPage(page + 1)}
@@ -31,9 +36,9 @@ export default function Gallery({ photos, page, setPage, hasMore }) {
         loader={<Loading />}
       >
         <main>
-          {photos?.map((photo) => (
+          {photos.map((photo) => (
             <div key={photo.id} onClick={() => handlePhotoView(photo)}>
-              <Image photo={photo} source={photo.urls?.small_s3} />
+              <Image photo={photo} source={photo.urls?.small} />
             </div>
           ))}
         </main>

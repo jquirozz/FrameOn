@@ -8,27 +8,26 @@ export default function Image({ photo, source }) {
     setIsLoaded(true);
   };
 
-  if (photo)
-    return (
-      <picture
-        style={{
-          aspectRatio: photo.width / photo.height,
-        }}
-      >
-        {!isLoaded && (
-          <Blurhash
-            height={photo.height}
-            width={photo.width}
-            hash={photo.blur_hash}
-          />
-        )}
-        <img
-          onLoad={handleImageLoad}
-          src={source}
-          style={{
-            display: isLoaded ? "block" : "none",
-          }}
+  return (
+    <picture
+      style={{
+        aspectRatio: photo.width / photo.height,
+      }}
+    >
+      {!isLoaded && photo.blur_hash && (
+        <Blurhash
+          height={photo.height}
+          width={photo.width}
+          hash={photo.blur_hash}
         />
-      </picture>
-    );
+      )}
+      <img
+        onLoad={handleImageLoad}
+        src={source}
+        style={{
+          display: isLoaded ? "block" : "none",
+        }}
+      />
+    </picture>
+  );
 }

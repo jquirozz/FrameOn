@@ -11,10 +11,10 @@ const useUserGallery = (endpoint, username, page = 1) => {
   const [loading, setLoading] = useState(true);
 
   const fetchData = useCallback(async () => {
-    let res;
     const PARAMS = { username, page, perPage: 28 };
+    let res;
 
-    setLoading(true);
+    if (page === 1) setLoading(true);
 
     try {
       if (endpoint === "getPhotos") {
@@ -24,8 +24,6 @@ const useUserGallery = (endpoint, username, page = 1) => {
       } else if (endpoint === "getCollections") {
         res = await unsplash.users.getCollections(PARAMS);
       }
-
-      console.log("API Response:", res.response);
 
       const resultArray = res.response.results || [];
       const updateHasMore = resultArray.length === 28;
