@@ -1,15 +1,13 @@
 .CollectionsGallery {
     .collections {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: .75rem;
 
         a {
             position: relative;
 
-            margin: auto;
-
+            max-width: 250px;
             width: 100%;
             aspect-ratio: 1;
 

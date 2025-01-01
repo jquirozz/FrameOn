@@ -9,9 +9,11 @@ const unsplash = createApi({
 export function useCollectionPhotos(collectionId, page = 1) {
   const [photos, setPhotos] = useState([]);
   const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   const fetchCollectionPhotos = useCallback(async () => {
     try {
+      setLoading(true);
       const resPhotos = await unsplash.collections.getPhotos({
         collectionId,
         page,
@@ -24,6 +26,8 @@ export function useCollectionPhotos(collectionId, page = 1) {
       setPhotos((prev) => (page === 1 ? photoArray : [...prev, ...photoArray]));
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   }, [collectionId, page]);
 
@@ -31,5 +35,5 @@ export function useCollectionPhotos(collectionId, page = 1) {
     fetchCollectionPhotos();
   }, [fetchCollectionPhotos]);
 
-  return { photos, hasMore };
+  return { photos, hasMore, loading };
 }

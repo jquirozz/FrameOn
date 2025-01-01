@@ -13,7 +13,7 @@ export default function Collection() {
   const [page, setPage] = useState(1);
   const { collectionId } = useParams();
   const { info } = useCollectionInfo(collectionId);
-  const { photos, loading, hasMore } = useCollectionPhotos(collectionId, page);
+  const { photos, hasMore, loading } = useCollectionPhotos(collectionId, page);
 
   if (loading) return <Loading />;
 
