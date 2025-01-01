@@ -1,17 +1,19 @@
 import { useParams, Link } from "react-router-dom";
 
-import Masonry from "../components/Masonry";
+import Gallery from "../components/Gallery";
 import Loading from "../components/Loading";
 
 import { useCollectionPhotos } from "../hooks/useCollectionPhotos";
 import { useCollectionInfo } from "../hooks/useCollectionInfo";
 
 import "./styles/Collection.css";
+import { useState } from "react";
 
 export default function Collection() {
+  const [page, setPage] = useState(1);
   const { collectionId } = useParams();
   const { info } = useCollectionInfo(collectionId);
-  const { photos, loading } = useCollectionPhotos(collectionId);
+  const { photos, loading, hasMore } = useCollectionPhotos(collectionId, page);
 
   if (loading) return <Loading />;
 
@@ -32,7 +34,12 @@ export default function Collection() {
         <p>{info.description}</p>
       </header>
       <main>
-        <Masonry photos={photos} />
+        <Gallery
+          photos={photos}
+          page={page}
+          setPage={setPage}
+          hasMore={hasMore}
+        />
       </main>
     </div>
   );

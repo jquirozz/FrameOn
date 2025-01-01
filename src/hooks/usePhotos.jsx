@@ -6,13 +6,13 @@ const unsplash = createApi({
   accessKey: import.meta.env.VITE_ACCESS_KEY,
 });
 
-export function usePhotos(query = "Christmas", page = 1) {
+export function usePhotos(query = "Happy new year", page = 1) {
   const [photos, setPhotos] = useState([]);
-  const [info, setInfo] = useState({ total: 0, total_page: 0, hasMore: true });
+  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     setPhotos([]);
-    setInfo({ total: 0, total_page: 0, hasMore: true });
+    setHasMore(true);
   }, [query]);
 
   useEffect(() => {
@@ -29,12 +29,7 @@ export function usePhotos(query = "Christmas", page = 1) {
         setPhotos((prev) =>
           page === 1 ? photoArray : [...prev, ...photoArray]
         );
-
-        setInfo({
-          total: res.response.total,
-          total_page: res.response.total_pages,
-          hasMore: updateHasMore,
-        });
+        setHasMore(updateHasMore);
       } catch (error) {
         console.error(error);
       }
@@ -42,5 +37,5 @@ export function usePhotos(query = "Christmas", page = 1) {
     fetchPhotos();
   }, [query, page]);
 
-  return { photos, info };
+  return { photos, hasMore };
 }

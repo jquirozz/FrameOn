@@ -6,32 +6,30 @@ const unsplash = createApi({
   accessKey: import.meta.env.VITE_ACCESS_KEY,
 });
 
-export function useCollectionPhotos(collectionId) {
+export function useCollectionPhotos(collectionId, page = 1) {
   const [photos, setPhotos] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [hasMore, setHasMore] = useState(true);
 
   const fetchCollectionPhotos = useCallback(async () => {
     try {
-      setLoading(true);
-
       const resPhotos = await unsplash.collections.getPhotos({
         collectionId,
-        page: 1,
+        page,
         perPage: 28,
       });
 
-      console.log(resPhotos.response.results);
-      setPhotos(resPhotos.response.results);
+      const photoArray = resPhotos.response.results;
+      const updateHasMore = photoArray.length === 28;
+      setHasMore(updateHasMore);
+      setPhotos((prev) => (page === 1 ? photoArray : [...prev, ...photoArray]));
     } catch (error) {
       console.error(error);
-    } finally {
-      setLoading(false);
     }
-  }, [collectionId]);
+  }, [collectionId, page]);
 
   useEffect(() => {
     fetchCollectionPhotos();
   }, [fetchCollectionPhotos]);
 
-  return { photos, loading };
+  return { photos, hasMore };
 }

@@ -27,26 +27,28 @@ export default function App() {
     <div className="App">
       <BrowserRouter>
         <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<NotFound />} />
+        <div className="screen">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
 
-          <Route path="/feed" element={<Feed />}>
-            <Route path=":query" element={<Feed />} />
-          </Route>
+            <Route path="/feed" element={<Feed />}>
+              <Route path=":query" element={<Feed />} />
+            </Route>
 
-          <Route path="/user/:username" element={<User />}>
-            <Route path="photos" element={<UserPhotos />} />
-            <Route path="collections" element={<UserCollections />} />
-            <Route path="likes" element={<UserLikes />} />
+            <Route path="/user/:username" element={<User />}>
+              <Route path="photos" element={<UserPhotos />} />
+              <Route path="collections" element={<UserCollections />} />
+              <Route path="likes" element={<UserLikes />} />
 
-            <Route index element={<RedirectToPhotos />} />
-          </Route>
+              <Route index element={<RedirectToPhotos />} />
+            </Route>
 
-          <Route path="/collections" element={<Collections />} />
+            <Route path="/collections" element={<Collections />} />
 
-          <Route path="/collection/:collectionId" element={<Collection />} />
-        </Routes>
+            <Route path="/collection/:collectionId" element={<Collection />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </div>
   );

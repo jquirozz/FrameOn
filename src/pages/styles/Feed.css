@@ -1,11 +1,3 @@
 .Feed {
-    main {
-        padding: clamp(1rem, 5vw, 4rem);
-    }
-
-    #infiniteScrollWrap {
-        height: calc(100dvh - 4rem);
-        overflow-y: auto;
-    }
-
+    padding: clamp(1rem, 5vw, 4rem);
 }

@@ -9,6 +9,7 @@ const unsplash = createApi({
 export function useCollections(page = 1) {
   const [collections, setCollections] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [hasMore, setHasMore] = useState(true);
 
   const fetchCollections = useCallback(async () => {
     try {
@@ -19,8 +20,12 @@ export function useCollections(page = 1) {
         perPage: 28,
       });
 
-      console.log(resCollections.response.results);
-      setCollections(resCollections.response.results);
+      const collectionsArray = resCollections.response.results;
+      const updateHasMore = collectionsArray.length === 28;
+      setCollections((prev) =>
+        page === 1 ? collectionsArray : [...prev, ...collectionsArray]
+      );
+      setHasMore(updateHasMore);
     } catch (error) {
       console.error(error);
     } finally {
@@ -32,5 +37,5 @@ export function useCollections(page = 1) {
     fetchCollections();
   }, [fetchCollections]);
 
-  return { collections, loading };
+  return { collections, loading, hasMore };
 }

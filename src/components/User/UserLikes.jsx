@@ -1,16 +1,21 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-import Masonry from "../Masonry";
+import Gallery from "../Gallery";
+import Loading from "../Loading";
 
 import { useUserLikes } from "../../hooks/User/useUserLikes";
 
 export default function UserLikes() {
+  const [page, setPage] = useState(1);
   const { username } = useParams();
-  const { likes } = useUserLikes(username);
+  const { likes, loading, hasMore } = useUserLikes(username, page);
+
+  if (loading) return <Loading />;
 
   return (
     <div className="UserLikes">
-      <Masonry photos={likes} />
+      <Gallery photos={likes} page={page} setPage={setPage} hasMore={hasMore} />
     </div>
   );
 }

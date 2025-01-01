@@ -1,16 +1,23 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-import Masonry from "../Masonry";
+import Gallery from "../Gallery";
 
 import { useUserPhotos } from "../../hooks/User/useUserPhotos";
 
 export default function UserPhotos() {
+  const [page, setPage] = useState(1);
   const { username } = useParams();
-  const { photos } = useUserPhotos(username);
+  const { photos, hasMore } = useUserPhotos(username, page);
 
   return (
     <div className="UserPhotos">
-      <Masonry photos={photos} />
+      <Gallery
+        photos={photos}
+        page={page}
+        setPage={setPage}
+        hasMore={hasMore}
+      />
     </div>
   );
 }

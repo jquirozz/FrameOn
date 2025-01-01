@@ -5,7 +5,7 @@ import Loading from "../components/Loading";
 
 import { useUserInfo } from "../hooks/User/useUserInfo";
 
-import { formatNumber } from "../services/formatNumber";
+import { formatNumber } from "../utils/formatNumber";
 
 import "./styles/User.css";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -100,7 +100,7 @@ export default function User() {
             )}
           </footer>
         </section>
-        <p>{info.bio}</p>
+        {info.bio && <p>{info.bio}</p>}
         <section className="actions">
           <header>
             <div>

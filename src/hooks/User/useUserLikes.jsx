@@ -6,32 +6,30 @@ const unsplash = createApi({
   accessKey: import.meta.env.VITE_ACCESS_KEY,
 });
 
-export function useUserLikes(username) {
+export function useUserLikes(username, page = 1) {
   const [likes, setLikes] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [hasMore, setHasMore] = useState(true);
 
   const fetchUserLikes = useCallback(async () => {
     try {
-      setLoading(true);
-
       const resPhotos = await unsplash.users.getLikes({
         username,
-        page: 1,
+        page,
         perPage: 28,
       });
 
-      console.log(resPhotos.response.results);
-      setLikes(resPhotos.response.results);
+      const photoArray = resPhotos.response.results;
+      const updateHasMore = photoArray.length === 28;
+      setLikes((prev) => (page === 1 ? photoArray : [...prev, ...photoArray]));
+      setHasMore(updateHasMore);
     } catch (error) {
       console.error(error);
-    } finally {
-      setLoading(false);
     }
-  }, [username]);
+  }, [username, page]);
 
   useEffect(() => {
     fetchUserLikes();
   }, [fetchUserLikes]);
 
-  return { likes, loading };
+  return { likes, hasMore };
 }

@@ -12,7 +12,7 @@
         .main {
             display: grid;
             place-content: center;
-            gap: .75rem;
+            gap: 1rem;
 
             img {
                 margin: auto;
@@ -86,10 +86,9 @@
                     display: grid;
                     place-content: center;
                     text-align: center;
-                    gap: .1rem;
 
                     h3 {
-                        font-size: 1.1rem;
+                        font-size: 1rem;
                         font-weight: 800;
                     }
 
@@ -103,12 +102,11 @@
 
             footer {
                 display: flex;
-                gap: .25rem;
+                gap: .5rem;
 
                 :nth-child(2) {
                     flex: 1;
                     min-width: 200px;
-                    max-width: 350px;
                 }
 
                 button {

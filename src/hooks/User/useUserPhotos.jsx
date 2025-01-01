@@ -6,31 +6,30 @@ const unsplash = createApi({
   accessKey: import.meta.env.VITE_ACCESS_KEY,
 });
 
-export function useUserPhotos(username) {
+export function useUserPhotos(username, page = 1) {
   const [photos, setPhotos] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [hasMore, setHasMore] = useState(true);
 
   const fetchUserPhotos = useCallback(async () => {
     try {
-      setLoading(true);
-
       const resPhotos = await unsplash.users.getPhotos({
         username,
-        page: 1,
+        page,
         perPage: 28,
       });
 
-      setPhotos(resPhotos.response.results);
+      const photoArray = resPhotos.response.results;
+      const updateHasMore = photoArray.length === 28;
+      setPhotos((prev) => (page === 1 ? photoArray : [...prev, ...photoArray]));
+      setHasMore(updateHasMore);
     } catch (error) {
       console.error(error);
-    } finally {
-      setLoading(false);
     }
-  }, [username]);
+  }, [username, page]);
 
   useEffect(() => {
     fetchUserPhotos();
   }, [fetchUserPhotos]);
 
-  return { photos, loading };
+  return { photos, hasMore };
 }
