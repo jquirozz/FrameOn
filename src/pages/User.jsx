@@ -3,7 +3,7 @@ import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 
 import Loading from "../components/Loading";
 
-import { useUserInfo } from "../hooks/User/useUserInfo";
+import { useUserInfo } from "../hooks/useUser";
 
 import { formatNumber } from "../utils/formatNumber";
 
