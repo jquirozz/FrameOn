@@ -7,10 +7,12 @@ const unsplash = createApi({
 });
 
 export function usePhotos(query = "Happy new year", page = 1) {
+  const [total, setTotal] = useState(0);
   const [photos, setPhotos] = useState([]);
   const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
+    setTotal(0);
     setPhotos([]);
     setHasMore(true);
   }, [query]);
@@ -29,6 +31,7 @@ export function usePhotos(query = "Happy new year", page = 1) {
         setPhotos((prev) =>
           page === 1 ? photoArray : [...prev, ...photoArray]
         );
+        setTotal(res.response.total);
         setHasMore(updateHasMore);
       } catch (error) {
         console.error(error);
@@ -37,5 +40,5 @@ export function usePhotos(query = "Happy new year", page = 1) {
     fetchPhotos();
   }, [query, page]);
 
-  return { photos, hasMore };
+  return { photos, total, hasMore };
 }

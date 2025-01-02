@@ -20,16 +20,20 @@ import UserPhotos from "./components/User/UserPhotos";
 import UserCollections from "./components/User/UserCollections";
 import UserLikes from "./components/User/UserLikes";
 
+import { useRandomPhoto } from "./hooks/useRandomPhoto";
+
 import "./App.css";
 
 export default function App() {
+  const { photos } = useRandomPhoto(2);
+
   return (
     <div className="App">
       <BrowserRouter>
         <NavBar />
         <div className="screen">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home photos={photos} />} />
             <Route path="*" element={<NotFound />} />
 
             <Route path="/feed" element={<Feed />}>

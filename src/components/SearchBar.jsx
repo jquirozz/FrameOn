@@ -8,9 +8,10 @@ import { IoSearch, IoClose } from "react-icons/io5";
 
 export default function SearchBar() {
   const [inputValue, setInputValue] = useState("");
+  const search = useDebounce(inputValue);
+
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const search = useDebounce(inputValue);
 
   const handleInputChange = (e) => {
     // Input validation
@@ -35,7 +36,7 @@ export default function SearchBar() {
   }, [search]);
 
   useEffect(() => {
-    const isFeedPage = location.pathname.startsWith("/feed");
+    const isFeedPage = pathname.startsWith("/feed");
     !isFeedPage && setInputValue("");
   }, [pathname]);
 
@@ -44,6 +45,7 @@ export default function SearchBar() {
       <input
         id="searchInput"
         type="text"
+        autoComplete="off"
         placeholder="Search..."
         value={inputValue}
         onChange={handleInputChange}

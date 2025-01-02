@@ -20,6 +20,10 @@ export default function Collection() {
   return (
     <div className="Collection">
       <header>
+        <div className="title">
+          <h1>{info.title}</h1>
+          <h2>{info.total_photos} photos</h2>
+        </div>
         <Link className="profile" to={`/user/${info.user?.username}`}>
           <aside>
             <h3>@{info.user?.username}</h3>
@@ -27,11 +31,6 @@ export default function Collection() {
           </aside>
           <img src={info.user?.profile_image.large} />
         </Link>
-        <div className="title">
-          <h1>{info.title}</h1>
-          <h2>{info.total_photos} photos</h2>
-        </div>
-        <p>{info.description}</p>
       </header>
       <main>
         <PhotosGallery

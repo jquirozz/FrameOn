@@ -5,9 +5,22 @@
 
     header {
         display: flex;
-        flex-direction: row-reverse;
         align-items: center;
         justify-content: space-between;
+
+        .title {
+            flex: 1;
+
+            h1 {
+                font-size: 3rem;
+                text-transform: uppercase;
+            }
+
+            h2 {
+                font-size: 1rem;
+                color: #888;
+            }
+        }
 
         .profile {
             display: flex;
@@ -44,22 +57,6 @@
                 background-color: #EEE;
             }
         }
-
-        .title {
-            flex: 1;
-
-            h1 {
-                font-size: 3rem;
-                text-transform: uppercase;
-            }
-
-            h2 {
-                font-size: 1rem;
-                color: #888;
-            }
-        }
-
-        p {}
     }
 
     main {}

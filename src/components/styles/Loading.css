@@ -1,5 +1,5 @@
 .Loading {
-    --dot_size: 1.75rem;
+    --dot_size: 1.25rem;
     --animation_time: 1000ms;
 
     display: flex;
@@ -8,16 +8,16 @@
 
     gap: calc(var(--dot_size) * .5);
     padding: calc(var(--dot_size) * 2);
-
-    width: 100%;
+    padding-inline: 0;
 
     .dot {
-        animation: floating-dot var(--animation_time) alternate infinite;
+        transform: translateY(calc(var(--dot_size) / 2));
+        animation: floating-dot var(--animation_time) alternate infinite forwards;
 
         width: var(--dot_size);
         aspect-ratio: 1;
 
-        border-radius: 10px;
+        border-radius: 5px;
 
         background-color: #000;
     }
@@ -37,10 +37,10 @@
 
 @keyframes floating-dot {
     from {
-        transform: translateY(0);
+        transform: translateY(calc(var(--dot_size) / 2));
     }
 
     to {
-        transform: translateY(calc(var(--dot_size) * -1));
+        transform: translateY(calc(var(--dot_size) / -2));
     }
 }

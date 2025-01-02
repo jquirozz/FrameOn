@@ -10,10 +10,14 @@ import "./styles/Feed.css";
 export default function Feed() {
   const [page, setPage] = useState(1);
   const { query } = useParams();
-  const { photos, hasMore } = usePhotos(query, page);
+  const { photos, total, hasMore } = usePhotos(query, page);
 
   return (
     <div className="Feed">
+      <header className="title">
+        <h1>{query}</h1>
+        <h2>{total} photos</h2>
+      </header>
       <Gallery
         photos={photos}
         page={page}
