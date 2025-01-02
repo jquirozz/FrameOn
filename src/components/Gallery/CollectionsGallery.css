@@ -1,14 +1,16 @@
 .CollectionsGallery {
     .collections {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
         gap: .75rem;
 
         a {
+            flex: 1;
             position: relative;
 
-            max-width: 250px;
+            min-width: 180px;
             width: 100%;
+            max-width: 250px;
             aspect-ratio: 1;
 
             overflow: hidden;

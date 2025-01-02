@@ -2,13 +2,16 @@
     position: relative;
 
     main {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
         gap: .75rem;
 
         div {
-            max-width: 250px;
+            flex: 1;
+
+            min-width: 180px;
             width: 100%;
+            max-width: 250px;
             aspect-ratio: 1;
 
             overflow: hidden;

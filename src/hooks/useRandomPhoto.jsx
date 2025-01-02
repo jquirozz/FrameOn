@@ -21,7 +21,6 @@ export function useRandomPhoto(count = 1) {
           query: ["space", "landscapes", "city"],
         });
 
-        console.log(res.response);
         setPhotos(res.response);
       } catch (error) {
         console.error(error);
