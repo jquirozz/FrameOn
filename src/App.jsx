@@ -12,8 +12,6 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 
 import Feed from "./pages/Feed";
-import SinglePost from "./pages/SinglePost";
-
 import Collections from "./pages/Collections";
 import Collection from "./pages/Collection";
 
@@ -27,7 +25,7 @@ import { useRandomPhoto } from "./hooks/useRandomPhoto";
 import "./App.css";
 
 export default function App() {
-  const { photos } = useRandomPhoto();
+  const { photos } = useRandomPhoto(2);
 
   return (
     <div className="App">
@@ -42,8 +40,6 @@ export default function App() {
               <Route path=":query" element={<Feed />} />
             </Route>
 
-            <Route path="/post/:postId" element={<SinglePost />} />
-
             <Route path="/user/:username" element={<User />}>
               <Route path="photos" element={<UserPhotos />} />
               <Route path="collections" element={<UserCollections />} />
@@ -53,6 +49,7 @@ export default function App() {
             </Route>
 
             <Route path="/collections" element={<Collections />} />
+
             <Route path="/collection/:collectionId" element={<Collection />} />
           </Routes>
         </div>

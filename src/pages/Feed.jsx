@@ -14,12 +14,10 @@ export default function Feed() {
 
   return (
     <div className="Feed">
-      {query && (
-        <header className="title">
-          <h1>{query}</h1>
-          <h2>{total} photos</h2>
-        </header>
-      )}
+      <header className="title">
+        <h1>{query}</h1>
+        <h2>{total} photos</h2>
+      </header>
       <Gallery
         photos={photos}
         page={page}

@@ -1,47 +1,32 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Image from "./Image";
 
 import { formatDate } from "../utils/formatDate";
 
 import "./styles/Post.css";
-import { IoClose, IoCheckmarkSharp } from "react-icons/io5";
+import { IoClose } from "react-icons/io5";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { PiShareNetwork } from "react-icons/pi";
 import { AiOutlineSave } from "react-icons/ai";
 
 export default function Post({ photo, isOpen, setIsOpen }) {
   const [like, setLike] = useState(photo.liked_by_user);
-  const [copied, setCopied] = useState(false);
 
-  const navigate = useNavigate();
+  const description = photo.description || photo.alt_description;
 
   const handleLike = () => {
     setLike(!like);
   };
 
-  const handleShare = async (postId) => {
-    const { origin } = window.location;
-    const url = `${origin}/post/${postId}`;
-
-    try {
-      await navigator.clipboard.writeText(url);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (error) {
-      console.error("Failed to copy text: ", error);
-    }
-  };
+  const handleShare = () => {};
 
   const handleDownload = () => {};
 
   const handleClosePhoto = () => {
-    if (setIsOpen) setIsOpen(false);
-    navigate("/feed");
+    setIsOpen(false);
   };
-
-  const description = photo.description || photo.alt_description;
 
   return (
     <section className={`Post ${isOpen ? "open" : "close"}`}>
@@ -65,8 +50,8 @@ export default function Post({ photo, isOpen, setIsOpen }) {
               <button onClick={handleDownload}>
                 <AiOutlineSave />
               </button>
-              <button onClick={() => handleShare(photo.id)}>
-                {copied ? <IoCheckmarkSharp /> : <PiShareNetwork />}
+              <button onClick={handleShare}>
+                <PiShareNetwork />
               </button>
             </div>
             <div className="description">
