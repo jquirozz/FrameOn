@@ -1,0 +1,212 @@
+.User {
+    display: grid;
+    gap: clamp(1rem, 5vw, 4rem);
+    padding: clamp(1rem, 5vw, 4rem);
+
+    .userInfo {
+        display: grid;
+        place-content: center;
+
+        gap: 2rem;
+
+        .main {
+            display: grid;
+            place-content: center;
+            gap: 1rem;
+
+            img {
+                margin: auto;
+                overflow: hidden;
+                height: 10rem;
+                aspect-ratio: 1;
+
+                outline: 4px solid #000;
+                border: 8px solid #FFF;
+                border-radius: 50%;
+            }
+
+            section {
+                display: grid;
+                place-content: center;
+                text-align: center;
+
+                h3 {
+                    font-size: .75rem;
+                    font-weight: 500;
+                    color: #888;
+                }
+
+                h2 {
+                    font-size: 1.5rem;
+                    font-weight: 800;
+                }
+            }
+
+            footer {
+                display: flex;
+                justify-content: space-evenly;
+                gap: 1.5rem;
+
+                a {
+                    display: grid;
+                    place-content: center;
+
+                    width: 3rem;
+                    aspect-ratio: 1;
+
+                    box-shadow: 0 0 5px #0003;
+                    border-radius: 50%;
+
+                    svg {
+                        font-size: 1.5rem;
+                    }
+                }
+            }
+        }
+
+        p {
+            max-width: 500px;
+
+            text-align: center;
+            text-wrap: balance;
+        }
+
+        .actions {
+            display: grid;
+            align-items: center;
+
+            gap: 1.25rem;
+
+            header {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+
+                div {
+                    display: grid;
+                    place-content: center;
+                    text-align: center;
+
+                    h3 {
+                        font-size: 1rem;
+                        font-weight: 800;
+                    }
+
+                    h4 {
+                        text-transform: capitalize;
+                        font-size: .75rem;
+                        font-weight: 400;
+                        color: #888;
+                    }
+                }
+            }
+
+            footer {
+                display: flex;
+                gap: .5rem;
+
+                :nth-child(2) {
+                    flex: 1;
+                    min-width: 200px;
+                }
+
+                button {
+                    display: grid;
+                    place-content: center;
+
+                    padding: .5rem .75rem;
+
+                    border: 2px solid #000;
+                    border-radius: 10px;
+
+                    color: #FFF;
+                    background-color: #000;
+
+                    h3 {
+                        font-size: .9rem;
+                        font-weight: 600;
+                    }
+
+                    svg {
+                        font-size: 1.5rem;
+                    }
+                }
+
+                .following {
+                    color: #000;
+                    background-color: #FFF;
+                }
+            }
+        }
+    }
+
+    footer {
+        display: grid;
+        gap: 1rem;
+
+        nav {
+            display: flex;
+            gap: .75rem;
+
+            a {
+                flex: 1;
+                transition: flex 400ms ease-in-out;
+
+                display: grid;
+                grid-template-columns: auto 1fr;
+                align-items: center;
+
+                gap: .75rem;
+                padding: 1rem 1.5rem;
+
+                border-radius: 10px;
+                border: 2px solid #000;
+
+                color: #000;
+
+                svg {
+                    font-size: 1.5rem;
+                }
+
+                h4 {
+                    font-size: 1rem;
+                    text-transform: capitalize;
+                }
+            }
+
+            .active {
+                flex: 6;
+                color: #FFF;
+                background-color: #000;
+            }
+        }
+    }
+}
+
+
+@media (max-width: 700px) {
+    .User {
+        footer {
+            nav {
+                a {
+                    grid-template-columns: auto;
+                    justify-content: center;
+
+                    svg {}
+
+                    h4 {
+                        display: none;
+                    }
+                }
+
+                .active:first-child {
+                    justify-content: left;
+                }
+
+                .active:last-child {
+                    justify-content: right;
+                }
+            }
+        }
+    }
+}

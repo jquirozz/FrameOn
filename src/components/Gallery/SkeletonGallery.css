@@ -1,0 +1,12 @@
+.SkeletonGallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: .75rem;
+
+    .square {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 10px;
+        background-color: #222;
+    }
+}

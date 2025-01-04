@@ -1,0 +1,5 @@
+.Collections {
+    main {
+        padding: clamp(1rem, 5vw, 4rem);
+    }
+}
