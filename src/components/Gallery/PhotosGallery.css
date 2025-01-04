@@ -2,12 +2,18 @@
     position: relative;
 
     main {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
+
         gap: .75rem;
 
+        width: 100%;
+
         div {
-            max-width: 250px;
+            flex: 1;
+
+            min-width: 180px;
+            max-width: 360px;
             width: 100%;
             aspect-ratio: 1;
 
@@ -15,7 +21,7 @@
             border-radius: 10px;
 
             cursor: pointer;
-            background-color: #555;
+            background-color: #222;
 
             img {
                 width: 100%;

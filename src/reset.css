@@ -6,10 +6,6 @@
   margin: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: "Inter", serif;
   user-select: none;

@@ -93,6 +93,7 @@
                     }
 
                     h4 {
+                        text-transform: capitalize;
                         font-size: .75rem;
                         font-weight: 400;
                         color: #888;

@@ -47,11 +47,11 @@ export default function Post({ photo, isOpen, setIsOpen }) {
               <button onClick={handleLike}>
                 {like ? <AiFillHeart color="F22" /> : <AiOutlineHeart />}
               </button>
-              <button onClick={handleDownload}>
-                <AiOutlineSave />
+              <button onClick={handleDownload} disabled>
+                <AiOutlineSave color="888" />
               </button>
-              <button onClick={handleShare}>
-                <PiShareNetwork />
+              <button onClick={handleShare} disabled>
+                <PiShareNetwork color="888" />
               </button>
             </div>
             <div className="description">

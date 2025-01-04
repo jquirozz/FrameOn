@@ -1,20 +1,22 @@
 .CollectionsGallery {
     .collections {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        display: flex;
+        flex-wrap: wrap;
+
         gap: .75rem;
 
         a {
             position: relative;
 
-            max-width: 250px;
+            min-width: 180px;
+            max-width: 360px;
             width: 100%;
             aspect-ratio: 1;
 
             overflow: hidden;
             border-radius: 10px;
 
-            background-color: #555;
+            background-color: #222;
 
             img {
                 position: absolute;

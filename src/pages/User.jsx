@@ -43,6 +43,21 @@ function UserInfo({ info }) {
     setIsFollowing(!isFollowing);
   };
 
+  const HEADER_INFO = [
+    {
+      title: "followers",
+      count: formatNumber(info.followers_count),
+    },
+    {
+      title: "following",
+      count: formatNumber(info.following_count),
+    },
+    {
+      title: "photos",
+      count: formatNumber(info.total_photos),
+    },
+  ];
+
   const SOCIAL_LINKS = [
     {
       title: "instagram",
@@ -96,18 +111,12 @@ function UserInfo({ info }) {
       {info.bio && <p>{info.bio}</p>}
       <section className="actions">
         <header>
-          <div>
-            <h3>{formatNumber(info.total_photos)}</h3>
-            <h4>Photos</h4>
-          </div>
-          <div>
-            <h3>{formatNumber(info.followers_count)}</h3>
-            <h4>Followers</h4>
-          </div>
-          <div>
-            <h3>{formatNumber(info.following_count)}</h3>
-            <h4>Following</h4>
-          </div>
+          {HEADER_INFO.map((info) => (
+            <div key={info.title}>
+              <h3>{info.count}</h3>
+              <h4>{info.title}</h4>
+            </div>
+          ))}
         </header>
         <footer>
           <button>
