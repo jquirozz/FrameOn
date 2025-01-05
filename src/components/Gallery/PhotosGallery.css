@@ -2,15 +2,12 @@
     position: relative;
 
     main {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: .75rem;
 
         div {
             flex: 1;
-
-            min-width: 200px;
-            max-width: 300px;
             width: 100%;
             aspect-ratio: 1;
 

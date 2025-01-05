@@ -1,0 +1,63 @@
+.ActionHeader {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.75rem;
+
+    main {
+        h1 {
+            font-size: 3rem;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 1rem;
+            color: #888;
+        }
+    }
+
+    aside {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        button {
+            flex: 1;
+
+            min-width: 200px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: .5rem .75rem;
+            gap: .75rem;
+
+            text-transform: capitalize;
+
+            border: 2px solid #000;
+            border-radius: 5px;
+
+            color: #FFF;
+            background-color: #000;
+
+            h4 {}
+
+            svg {}
+        }
+
+        .active {
+            color: #000;
+            background-color: #FFF;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .ActionHeader {
+        aside {
+            flex-direction: row;
+            width: 100%;
+        }
+    }
+}

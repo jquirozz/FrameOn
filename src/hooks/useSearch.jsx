@@ -16,7 +16,7 @@ export function useSearch(query = "photos", page = 1, orderBy = "relevant") {
     setTotal(0);
     setPhotos([]);
     setHasMore(true);
-  }, [query]);
+  }, [query, orderBy]);
 
   const fetchSearch = useCallback(async () => {
     try {

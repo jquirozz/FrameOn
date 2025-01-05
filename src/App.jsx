@@ -30,9 +30,8 @@ export default function App() {
           <Routes>
             <Route path="*" element={<NotFound />} />
 
-            <Route path="/" element={<Feed />}>
-              <Route path="search/:query" element={<Feed />} />
-            </Route>
+            <Route path="/" element={<Feed />} />
+            <Route path="search/:query" element={<Feed />} />
 
             <Route path="/user/:username" element={<User />}>
               <Route path="photos" element={<UserPhotos />} />
