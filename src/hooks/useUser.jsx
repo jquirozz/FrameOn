@@ -11,7 +11,7 @@ const useUserGallery = (endpoint, username, page = 1) => {
   const [loading, setLoading] = useState(true);
 
   const fetchData = useCallback(async () => {
-    const PARAMS = { username, page, perPage: 28 };
+    const PARAMS = { username, page, perPage: 30 };
     let res;
 
     if (page === 1) setLoading(true);
@@ -26,7 +26,7 @@ const useUserGallery = (endpoint, username, page = 1) => {
       }
 
       const resultArray = res.response.results || [];
-      const updateHasMore = resultArray.length === 28;
+      const updateHasMore = resultArray.length === 30;
 
       setData((prev) => (page === 1 ? resultArray : [...prev, ...resultArray]));
       setHasMore(updateHasMore);
@@ -69,14 +69,14 @@ export function useUserInfo(username) {
   return { info, loading };
 }
 
-export const useUserPhotos = (username, page = 1) => {
+export const useUserPhotos = (username, page) => {
   return useUserGallery("getPhotos", username, page);
 };
 
-export const useUserLikes = (username, page = 1) => {
+export const useUserLikes = (username, page) => {
   return useUserGallery("getLikes", username, page);
 };
 
-export const useUserCollections = (username, page = 1) => {
+export const useUserCollections = (username, page) => {
   return useUserGallery("getCollections", username, page);
 };

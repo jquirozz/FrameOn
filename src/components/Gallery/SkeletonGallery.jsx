@@ -31,6 +31,8 @@ export default function SkeletonGallery() {
       <div className="square"></div>
       <div className="square"></div>
       <div className="square"></div>
+      <div className="square"></div>
+      <div className="square"></div>
     </div>
   );
 }

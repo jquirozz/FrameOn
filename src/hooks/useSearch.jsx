@@ -23,11 +23,11 @@ export function useSearch(query = "photos", page = 1, orderBy = "relevant") {
         query,
         page,
         orderBy,
-        perPage: 28,
+        perPage: 30,
       });
 
       const photoArray = res.response.results;
-      const updateHasMore = photoArray.length === 28;
+      const updateHasMore = photoArray.length === 30;
       setPhotos((prev) => (page === 1 ? photoArray : [...prev, ...photoArray]));
       setTotal(res.response.total);
       setHasMore(updateHasMore);
