@@ -36,7 +36,7 @@ export default function SearchBar() {
   }, [search]);
 
   useEffect(() => {
-    const isFeedPage = pathname === "/" || pathname.startsWith("/search");
+    const isFeedPage = pathname.startsWith("/search");
     !isFeedPage && setInputValue("");
   }, [pathname]);
 

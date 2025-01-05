@@ -15,9 +15,9 @@ import Collections from "./pages/Collections";
 import Collection from "./pages/Collection";
 
 import User from "./pages/User";
-import UserPhotos from "./components/User/UserPhotos";
-import UserCollections from "./components/User/UserCollections";
-import UserLikes from "./components/User/UserLikes";
+import UserPhotos from "./components/UserPhotos";
+import UserCollections from "./components/UserCollections";
+import UserLikes from "./components/UserLikes";
 
 import "./App.css";
 

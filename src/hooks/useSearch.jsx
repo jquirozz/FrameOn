@@ -10,6 +10,7 @@ export function useSearch(query = "photos", page = 1, orderBy = "relevant") {
   const [photos, setPhotos] = useState([]);
   const [total, setTotal] = useState(0);
   const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTotal(0);
@@ -19,6 +20,8 @@ export function useSearch(query = "photos", page = 1, orderBy = "relevant") {
 
   const fetchSearch = useCallback(async () => {
     try {
+      page === 1 && setLoading(true);
+
       const res = await unsplash.search.getPhotos({
         query,
         page,
@@ -33,6 +36,8 @@ export function useSearch(query = "photos", page = 1, orderBy = "relevant") {
       setHasMore(updateHasMore);
     } catch (error) {
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   }, [query, page, orderBy]);
 
@@ -40,5 +45,5 @@ export function useSearch(query = "photos", page = 1, orderBy = "relevant") {
     fetchSearch();
   }, [fetchSearch]);
 
-  return { photos, total, hasMore };
+  return { photos, total, hasMore, loading };
 }
