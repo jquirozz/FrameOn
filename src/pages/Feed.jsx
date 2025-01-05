@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
-import Gallery from "../components/Gallery/PhotosGallery";
+import PhotosGallery from "../components/Gallery/PhotosGallery";
 
-import { usePhotos } from "../hooks/usePhotos";
+import { useSearch } from "../hooks/useSearch";
 
 import "./styles/Feed.css";
 
 export default function Feed() {
   const [page, setPage] = useState(1);
   const { query } = useParams();
-  const { photos, total, hasMore } = usePhotos(query, page);
+  const { photos, total, hasMore } = useSearch(query, page);
 
   return (
     <div className="Feed">
@@ -20,7 +20,7 @@ export default function Feed() {
           <h2>{total} photos</h2>
         </header>
       )}
-      <Gallery
+      <PhotosGallery
         photos={photos}
         page={page}
         setPage={setPage}

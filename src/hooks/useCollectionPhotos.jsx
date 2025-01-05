@@ -13,7 +13,7 @@ export function useCollectionPhotos(collectionId, page = 1) {
 
   const fetchCollectionPhotos = useCallback(async () => {
     try {
-      setLoading(true);
+      page === 1 && setLoading(true);
       const resPhotos = await unsplash.collections.getPhotos({
         collectionId,
         page,

@@ -18,7 +18,6 @@ export function useCollectionInfo(collectionId) {
         collectionId,
       });
 
-      console.log(resPhotos.response);
       setInfo(resPhotos.response);
     } catch (error) {
       console.error(error);

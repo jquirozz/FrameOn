@@ -31,12 +31,12 @@ export default function SearchBar() {
 
   useEffect(() => {
     if (search) {
-      navigate(`/feed/${search}`);
+      navigate(`/search/${search}`);
     }
   }, [search]);
 
   useEffect(() => {
-    const isFeedPage = pathname.startsWith("/feed");
+    const isFeedPage = pathname === "/" || pathname.startsWith("/search");
     !isFeedPage && setInputValue("");
   }, [pathname]);
 

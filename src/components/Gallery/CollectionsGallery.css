@@ -2,13 +2,13 @@
     .collections {
         display: flex;
         flex-wrap: wrap;
-
         gap: .75rem;
 
         a {
+            flex: 1;
             position: relative;
 
-            min-width: 180px;
+            min-width: 200px;
             max-width: 360px;
             width: 100%;
             aspect-ratio: 1;

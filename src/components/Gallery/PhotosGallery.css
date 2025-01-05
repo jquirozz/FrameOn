@@ -4,16 +4,13 @@
     main {
         display: flex;
         flex-wrap: wrap;
-
         gap: .75rem;
-
-        width: 100%;
 
         div {
             flex: 1;
 
-            min-width: 180px;
-            max-width: 360px;
+            min-width: 200px;
+            max-width: 225px;
             width: 100%;
             aspect-ratio: 1;
 

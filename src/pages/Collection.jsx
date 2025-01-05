@@ -1,13 +1,14 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 import PhotosGallery from "../components/Gallery/PhotosGallery";
 import Loading from "../components/Loading";
+import NotFound from "../components/NotFound";
 
 import { useCollectionPhotos } from "../hooks/useCollectionPhotos";
 import { useCollectionInfo } from "../hooks/useCollectionInfo";
 
 import "./styles/Collection.css";
-import { useState } from "react";
 
 export default function Collection() {
   const [page, setPage] = useState(1);
@@ -16,6 +17,7 @@ export default function Collection() {
   const { photos, hasMore, loading } = useCollectionPhotos(collectionId, page);
 
   if (loading) return <Loading />;
+  if (!photos.length > 0) return <NotFound />;
 
   return (
     <div className="Collection">
@@ -32,14 +34,12 @@ export default function Collection() {
           <img src={info.user?.profile_image.large} />
         </Link>
       </header>
-      <main>
-        <PhotosGallery
-          photos={photos}
-          page={page}
-          setPage={setPage}
-          hasMore={hasMore}
-        />
-      </main>
+      <PhotosGallery
+        photos={photos}
+        page={page}
+        setPage={setPage}
+        hasMore={hasMore}
+      />
     </div>
   );
 }

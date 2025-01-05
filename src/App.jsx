@@ -8,8 +8,7 @@ import {
 
 import NavBar from "./components/NavBar";
 
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
+import NotFound from "./components/NotFound";
 
 import Feed from "./pages/Feed";
 import Collections from "./pages/Collections";
@@ -20,24 +19,19 @@ import UserPhotos from "./components/User/UserPhotos";
 import UserCollections from "./components/User/UserCollections";
 import UserLikes from "./components/User/UserLikes";
 
-import { useRandomPhoto } from "./hooks/useRandomPhoto";
-
 import "./App.css";
 
 export default function App() {
-  const { photos } = useRandomPhoto(2);
-
   return (
     <div className="App">
       <BrowserRouter>
         <NavBar />
         <div className="screen">
           <Routes>
-            <Route path="/" element={<Home photos={photos} />} />
             <Route path="*" element={<NotFound />} />
 
-            <Route path="/feed" element={<Feed />}>
-              <Route path=":query" element={<Feed />} />
+            <Route path="/" element={<Feed />}>
+              <Route path="search/:query" element={<Feed />} />
             </Route>
 
             <Route path="/user/:username" element={<User />}>
