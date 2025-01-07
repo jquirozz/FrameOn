@@ -1,13 +1,14 @@
 .CollectionsGallery {
     .collections {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: .75rem;
 
         a {
             position: relative;
 
             width: 100%;
+            max-width: 300px;
             aspect-ratio: 1;
 
             overflow: hidden;
@@ -32,7 +33,7 @@
             display: grid;
             place-content: center;
 
-            padding: 2rem;
+            padding: 1.5rem;
 
             transition: transform 200ms ease-in-out;
             transform: translateY(100%);
@@ -47,9 +48,9 @@
                 filter: opacity(0);
 
                 h2 {
-                    text-wrap: pretty;
                     font-size: 1rem;
-                    font-weight: 800;
+                    font-weight: 700;
+                    text-wrap: pretty;
                     color: #FFF;
                 }
 
@@ -92,8 +93,6 @@
                     gap: .25rem;
                 }
             }
-
-
         }
     }
 }

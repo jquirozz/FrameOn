@@ -28,7 +28,7 @@ export default function User() {
   return (
     <div className="User">
       <UserInfo info={info} />
-      <footer>
+      <footer className="galleryWrap">
         <UserGalleryNav info={info} />
         <Outlet />
       </footer>
@@ -158,7 +158,7 @@ function UserGalleryNav({ info }) {
   ];
 
   return (
-    <nav>
+    <nav className="galleryNav">
       {NAV_OPTIONS.map(
         (option) =>
           option.total > 0 && (

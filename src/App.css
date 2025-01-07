@@ -8,6 +8,8 @@
     .screen {
         display: grid;
 
+        padding: clamp(1rem, 5vw, 4rem);
+
         color: var(--invert);
         background-color: var(--background);
     }

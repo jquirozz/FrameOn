@@ -1,13 +1,12 @@
 .User {
     display: grid;
     gap: clamp(1rem, 5vw, 4rem);
-    padding: clamp(1rem, 5vw, 4rem);
 
     .userInfo {
         display: grid;
         place-content: center;
 
-        gap: 2rem;
+        gap: 1.5rem;
 
         .main {
             display: grid;
@@ -17,7 +16,7 @@
             img {
                 margin: auto;
                 overflow: hidden;
-                height: 10rem;
+                height: 9rem;
                 aspect-ratio: 1;
 
                 border: 8px solid var(--background);
@@ -32,8 +31,8 @@
 
                 h3 {
                     font-size: .75rem;
-                    font-weight: 500;
-                    color: var(--invert);
+                    font-weight: 400;
+                    color: #888;
                 }
 
                 h2 {
@@ -65,7 +64,10 @@
         }
 
         p {
-            max-width: 500px;
+            width: 100%;
+            max-width: 600px;
+
+            padding: .5rem;
 
             text-align: center;
             text-wrap: balance;
@@ -81,6 +83,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-evenly;
+
 
                 div {
                     display: grid;
@@ -103,11 +106,12 @@
 
             footer {
                 display: flex;
+                flex-wrap: wrap;
                 gap: .5rem;
 
                 :nth-child(2) {
                     flex: 1;
-                    min-width: 200px;
+                    min-width: 180px;
                 }
 
                 button {
@@ -140,12 +144,13 @@
         }
     }
 
-    footer {
+    .galleryWrap {
         display: grid;
         gap: 1rem;
 
-        nav {
+        .galleryNav {
             display: flex;
+            align-items: center;
             gap: .75rem;
 
             a {
@@ -157,7 +162,7 @@
                 align-items: center;
 
                 gap: .75rem;
-                padding: 1rem 1.5rem;
+                padding: .75rem 1.25rem;
 
                 border-radius: 10px;
                 border: 2px solid var(--invert);
@@ -165,7 +170,7 @@
                 color: var(--invert);
 
                 svg {
-                    font-size: 1.5rem;
+                    font-size: 1.25rem;
                 }
 
                 h4 {
@@ -175,7 +180,7 @@
             }
 
             .active {
-                flex: 6;
+                flex: 5;
                 color: var(--main);
                 background-color: var(--invert);
             }
@@ -186,10 +191,58 @@
 
 @media (max-width: 700px) {
     .User {
-        footer {
-            nav {
+        .userInfo {
+            gap: 2rem;
+
+            .main {
+                gap: .75rem;
+
+                img {
+                    height: 7rem;
+
+                    border-width: 4px;
+                    outline-width: 2px;
+                }
+
+                section {
+                    h2 {
+                        font-size: 1.25rem;
+                    }
+                }
+
+                footer {
+                    gap: 1.25rem;
+
+                    a {
+                        width: 2.5rem;
+
+                        svg {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+
+            .actions {
+                footer {
+                    button {
+                        h3 {
+                            font-size: .75rem;
+                        }
+
+                        svg {
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .galleryWrap {
+            .galleryNav {
                 a {
-                    grid-template-columns: auto;
+                    display: flex;
+                    align-items: center;
                     justify-content: center;
 
                     svg {}
