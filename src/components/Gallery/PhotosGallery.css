@@ -3,11 +3,12 @@
 
     main {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
         gap: .75rem;
 
         div {
             width: 100%;
+            max-width: 400px;
             aspect-ratio: 1;
 
             overflow: hidden;

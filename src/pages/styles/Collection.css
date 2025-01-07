@@ -1,7 +1,6 @@
 .Collection {
     display: grid;
     gap: clamp(1rem, 5vw, 4rem);
-    padding: clamp(1rem, 5vw, 4rem);
 
     header {
         display: flex;
