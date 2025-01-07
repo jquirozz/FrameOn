@@ -1,15 +1,12 @@
 .CollectionsGallery {
     .collections {
-        display: flex;
-        flex-wrap: wrap;
-
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: .75rem;
 
         a {
             position: relative;
 
-            min-width: 180px;
-            max-width: 360px;
             width: 100%;
             aspect-ratio: 1;
 
@@ -78,6 +75,25 @@
             .text {
                 filter: opacity(1);
             }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .CollectionsGallery {
+        .collections {
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: .25rem;
+
+            footer {
+                padding: 1rem;
+
+                .text {
+                    gap: .25rem;
+                }
+            }
+
+
         }
     }
 }

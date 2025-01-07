@@ -20,8 +20,8 @@
                 height: 10rem;
                 aspect-ratio: 1;
 
-                outline: 4px solid #000;
-                border: 8px solid #FFF;
+                border: 8px solid var(--background);
+                outline: 4px solid var(--invert);
                 border-radius: 50%;
             }
 
@@ -33,7 +33,7 @@
                 h3 {
                     font-size: .75rem;
                     font-weight: 500;
-                    color: #888;
+                    color: var(--invert);
                 }
 
                 h2 {
@@ -116,11 +116,11 @@
 
                     padding: .5rem .75rem;
 
-                    border: 2px solid #000;
+                    border: 2px solid var(--invert);
                     border-radius: 10px;
 
-                    color: #FFF;
-                    background-color: #000;
+                    color: var(--main);
+                    background-color: var(--invert);
 
                     h3 {
                         font-size: .9rem;
@@ -133,8 +133,8 @@
                 }
 
                 .following {
-                    color: #000;
-                    background-color: #FFF;
+                    color: var(--invert);
+                    background-color: var(--background);
                 }
             }
         }
@@ -160,9 +160,9 @@
                 padding: 1rem 1.5rem;
 
                 border-radius: 10px;
-                border: 2px solid #000;
+                border: 2px solid var(--invert);
 
-                color: #000;
+                color: var(--invert);
 
                 svg {
                     font-size: 1.5rem;
@@ -176,8 +176,8 @@
 
             .active {
                 flex: 6;
-                color: #FFF;
-                background-color: #000;
+                color: var(--main);
+                background-color: var(--invert);
             }
         }
     }

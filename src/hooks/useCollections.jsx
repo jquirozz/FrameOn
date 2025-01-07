@@ -13,15 +13,15 @@ export function useCollections(page = 1) {
 
   const fetchCollections = useCallback(async () => {
     try {
-      setLoading(true);
+      if (page === 1) setLoading(true);
 
       const resCollections = await unsplash.collections.list({
         page,
-        perPage: 28,
+        perPage: 30,
       });
 
       const collectionsArray = resCollections.response.results;
-      const updateHasMore = collectionsArray.length === 28;
+      const updateHasMore = collectionsArray.length === 30;
       setCollections((prev) =>
         page === 1 ? collectionsArray : [...prev, ...collectionsArray]
       );

@@ -45,13 +45,13 @@ export default function Post({ photo, isOpen, setIsOpen }) {
           <section className="info">
             <div className="actions">
               <button onClick={handleLike}>
-                {like ? <AiFillHeart color="F22" /> : <AiOutlineHeart />}
+                {like ? <AiFillHeart color="C00" /> : <AiOutlineHeart />}
               </button>
               <button onClick={handleDownload} disabled>
-                <AiOutlineSave color="888" />
+                <AiOutlineSave color="DDD" />
               </button>
               <button onClick={handleShare} disabled>
-                <PiShareNetwork color="888" />
+                <PiShareNetwork color="DDD" />
               </button>
             </div>
             <div className="description">
@@ -70,10 +70,10 @@ function Profile({ user, id }) {
     <Link to={`/user/${user?.username}`} className="Profile" id={id}>
       <img src={user?.profile_image?.large} />
       <section>
-        <h3>@{user?.username}</h3>
         <h2>
           {user?.first_name} {user?.last_name}
         </h2>
+        <h3>@{user?.username}</h3>
       </section>
     </Link>
   );

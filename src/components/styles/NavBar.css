@@ -48,13 +48,15 @@
         gap: calc(var(--spacing)*2);
         padding: var(--spacing);
 
-        width: 25rem;
+        width: 100%;
+        max-width: 25rem;
 
-        border: 2px solid #111;
+        border: 2px solid var(--invert);
         border-radius: 10px;
         box-shadow: -5px 5px 5px #0002;
 
-        background-color: #FFF;
+        color: var(--invert);
+        background-color: var(--main);
 
         header {
             position: relative;
@@ -69,7 +71,7 @@
                 border-radius: 50%;
                 box-shadow: 0 0 5px #0002;
 
-                background-color: #111;
+                background-color: var(--invert);
             }
 
             .info {
@@ -77,15 +79,15 @@
                 flex-direction: column;
                 justify-content: center;
 
-                h3 {
-                    font-size: 1rem;
-                    font-weight: 400;
-                    color: #666;
+                h2 {
+                    font-size: 1.5rem;
+                    font-weight: 800;
                 }
 
-                h2 {
-                    font-size: 1.75rem;
-                    font-weight: 800;
+                h3 {
+                    font-size: .9rem;
+                    font-weight: 400;
+                    color: #666;
                 }
             }
 
@@ -101,16 +103,43 @@
 
                 border-radius: 20px;
 
-                background-color: #111;
+                background-color: var(--invert);
             }
         }
 
-        section {
+        .settings {
             height: 100%;
 
             h2 {
+                text-transform: uppercase;
                 font-size: 1.5rem;
                 font-weight: 800;
+            }
+
+            .SettingSection {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+
+                padding: .25rem 1.5rem;
+                gap: .75rem;
+
+                h3 {
+                    font-size: 1rem;
+                    font-weight: 700;
+                }
+
+                button {
+                    padding: .5rem 1rem;
+
+                    font-size: .75rem;
+                    text-transform: capitalize;
+
+                    border-radius: 5px;
+
+                    color: var(--main);
+                    background-color: var(--invert);
+                }
             }
         }
     }

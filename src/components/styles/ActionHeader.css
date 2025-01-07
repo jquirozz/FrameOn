@@ -1,0 +1,64 @@
+.ActionHeader {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.75rem;
+
+    main {
+        h1 {
+            font-size: clamp(1.5rem, 10vw, 3.5rem);
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: clamp(.75rem, 2.5vw, 1.1rem);
+            color: #888;
+        }
+    }
+
+    aside {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: .5rem;
+
+        button {
+            flex: 1;
+
+            min-width: 180px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: .5rem .75rem;
+            gap: .75rem;
+
+            text-transform: capitalize;
+
+            border: 2px solid var(--invert);
+            border-radius: 5px;
+
+            color: var(--main);
+            background-color: var(--invert);
+
+            h4 {}
+
+            svg {}
+        }
+
+        .active {
+            color: var(--invert);
+            background-color: var(--background);
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .ActionHeader {
+        aside {
+            flex-direction: row;
+            width: 100%;
+        }
+    }
+}

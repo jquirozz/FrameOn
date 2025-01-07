@@ -19,6 +19,7 @@ button, input {
 
 button {
   cursor: pointer;
+  color: var(--invert);
 }
 
 a {
