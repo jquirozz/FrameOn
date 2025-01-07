@@ -19,13 +19,17 @@ import UserPhotos from "./components/UserPhotos";
 import UserCollections from "./components/UserCollections";
 import UserLikes from "./components/UserLikes";
 
+import { useTheme } from "./context/ThemeContext";
+
 import "./App.css";
 
 export default function App() {
+  const { theme, toggleTheme } = useTheme();
+
   return (
-    <div className="App">
+    <div className={`App ${theme}`}>
       <BrowserRouter>
-        <NavBar />
+        <NavBar theme={theme} toggleTheme={toggleTheme} />
         <div className="screen">
           <Routes>
             <Route path="*" element={<NotFound />} />

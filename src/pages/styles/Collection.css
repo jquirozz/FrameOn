@@ -33,14 +33,14 @@
 
                 h3 {
                     font-size: .75rem;
-                    font-weight: 400;
-                    color: #666;
+                    font-weight: 300;
+                    color: var(--invert);
                 }
 
                 h2 {
                     font-size: 1.25rem;
                     font-weight: 800;
-                    color: #000;
+                    color: var(--invert);
                 }
             }
 
@@ -54,7 +54,7 @@
                 border-radius: 50%;
                 box-shadow: 0 0 5px #0003;
 
-                background-color: #EEE;
+                background-color: var(--invert);
             }
         }
     }

@@ -70,10 +70,10 @@ function Profile({ user, id }) {
     <Link to={`/user/${user?.username}`} className="Profile" id={id}>
       <img src={user?.profile_image?.large} />
       <section>
-        <h3>@{user?.username}</h3>
         <h2>
           {user?.first_name} {user?.last_name}
         </h2>
+        <h3>@{user?.username}</h3>
       </section>
     </Link>
   );

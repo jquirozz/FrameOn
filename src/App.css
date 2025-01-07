@@ -7,5 +7,20 @@
 
     .screen {
         display: grid;
+
+        color: var(--invert);
+        background-color: var(--background);
     }
+}
+
+.light {
+    --main: #FFF;
+    --invert: #000;
+    --background: #FFF;
+}
+
+.dark {
+    --main: #000;
+    --invert: #EEE;
+    --background: #222;
 }

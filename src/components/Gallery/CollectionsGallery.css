@@ -78,3 +78,22 @@
         }
     }
 }
+
+@media (max-width: 500px) {
+    .CollectionsGallery {
+        .collections {
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: .25rem;
+
+            footer {
+                padding: 1rem;
+
+                .text {
+                    gap: .25rem;
+                }
+            }
+
+
+        }
+    }
+}

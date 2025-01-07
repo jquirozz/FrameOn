@@ -3,7 +3,11 @@ import { IoStarOutline, IoCaretDown } from "react-icons/io5";
 
 export default function ActionHeader({ query, total, orderBy, setOrderBy }) {
   const title = query || "Frame on";
-  const subtitle = query ? `${total} Photos` : "Capture. Share. Inspire.";
+  const subtitle = query
+    ? total > 0
+      ? `${total} Photos`
+      : "Loading..."
+    : "Capture. Share. Inspire.";
 
   const ORDER_LIST = [
     { title: "relevant", icon: <IoStarOutline /> },

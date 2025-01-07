@@ -13,7 +13,7 @@ export function useCollections(page = 1) {
 
   const fetchCollections = useCallback(async () => {
     try {
-      setLoading(true);
+      if (page === 1) setLoading(true);
 
       const resCollections = await unsplash.collections.list({
         page,

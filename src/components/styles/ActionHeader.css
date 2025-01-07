@@ -6,25 +6,26 @@
 
     main {
         h1 {
-            font-size: 3rem;
+            font-size: clamp(1.5rem, 10vw, 3.5rem);
             text-transform: uppercase;
         }
 
         h2 {
-            font-size: 1rem;
+            font-size: clamp(.75rem, 2.5vw, 1.1rem);
             color: #888;
         }
     }
 
     aside {
         display: flex;
+        flex-wrap: wrap;
         flex-direction: column;
         gap: .5rem;
 
         button {
             flex: 1;
 
-            min-width: 200px;
+            min-width: 180px;
 
             display: flex;
             align-items: center;
@@ -35,11 +36,11 @@
 
             text-transform: capitalize;
 
-            border: 2px solid #000;
+            border: 2px solid var(--invert);
             border-radius: 5px;
 
-            color: #FFF;
-            background-color: #000;
+            color: var(--main);
+            background-color: var(--invert);
 
             h4 {}
 
@@ -47,8 +48,8 @@
         }
 
         .active {
-            color: #000;
-            background-color: #FFF;
+            color: var(--invert);
+            background-color: var(--background);
         }
     }
 }

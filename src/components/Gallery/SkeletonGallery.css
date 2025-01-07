@@ -4,11 +4,17 @@
     gap: .75rem;
 
     .square {
-        flex: 1;
         width: 100%;
         aspect-ratio: 1;
 
         border-radius: 10px;
         background-color: #222;
+    }
+}
+
+@media (max-width: 500px) {
+    .SkeletonGallery {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: .25rem;
     }
 }

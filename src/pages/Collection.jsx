@@ -28,8 +28,8 @@ export default function Collection() {
         </div>
         <Link className="profile" to={`/user/${info.user?.username}`}>
           <aside>
-            <h3>@{info.user?.username}</h3>
             <h2>{info.user?.name}</h2>
+            <h3>@{info.user?.username}</h3>
           </aside>
           <img src={info.user?.profile_image.large} />
         </Link>
