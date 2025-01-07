@@ -87,8 +87,8 @@ function UserInfo({ info }) {
       <section className="main">
         <img src={info.profile_image?.large} />
         <section>
-          <h3>@{info.username}</h3>
           <h2>{info.name}</h2>
+          <h3>@{info.username}</h3>
         </section>
         <footer>
           {SOCIAL_LINKS.map(
