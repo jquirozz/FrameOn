@@ -15,9 +15,11 @@ import Collections from "./pages/Collections";
 import Collection from "./pages/Collection";
 
 import User from "./pages/User";
-import UserPhotos from "./components/UserPhotos";
-import UserCollections from "./components/UserCollections";
-import UserLikes from "./components/UserLikes";
+import {
+  UserPhotos,
+  UserCollections,
+  UserLikes,
+} from "./components/UserGallery";
 
 import { useTheme } from "./context/ThemeContext";
 

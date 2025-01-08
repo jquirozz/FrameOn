@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
-import PhotosGallery from "../components/Gallery/PhotosGallery";
+import GalleryPhotos from "../components/GalleryPhotos";
 import Loading from "../components/Loading";
 import NotFound from "../components/NotFound";
 
@@ -34,8 +34,8 @@ export default function Collection() {
           <img src={info.user?.profile_image.large} />
         </Link>
       </header>
-      <PhotosGallery
-        photos={photos}
+      <GalleryPhotos
+        data={photos}
         page={page}
         setPage={setPage}
         hasMore={hasMore}

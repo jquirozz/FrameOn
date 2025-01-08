@@ -1,10 +1,8 @@
 import { useState } from "react";
 
-import CollectionsGallery from "../components/Gallery/CollectionsGallery";
+import GalleryCollections from "../components/GalleryCollections";
 
 import { useCollections } from "../hooks/useCollections";
-
-import "./styles/Collections.css";
 
 export default function Collections() {
   const [page, setPage] = useState(1);
@@ -12,8 +10,8 @@ export default function Collections() {
 
   return (
     <div className="Collections">
-      <CollectionsGallery
-        collections={collections}
+      <GalleryCollections
+        data={collections}
         page={page}
         setPage={setPage}
         hasMore={hasMore}

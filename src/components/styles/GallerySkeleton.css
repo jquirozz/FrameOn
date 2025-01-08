@@ -1,4 +1,4 @@
-.SkeletonGallery {
+.GallerySkeleton {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: .75rem;
@@ -9,12 +9,12 @@
         aspect-ratio: 1;
 
         border-radius: 10px;
-        background-color: #222;
+        background-color: var(--gray);
     }
 }
 
 @media (max-width: 500px) {
-    .SkeletonGallery {
+    .GallerySkeleton {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: .25rem;
     }

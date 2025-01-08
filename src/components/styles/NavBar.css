@@ -8,9 +8,9 @@
     gap: 1rem;
     padding: .75rem 1rem;
 
-    box-shadow: 0 5px 5px #0002;
+    box-shadow: 0 5px 5px var(--shadow_soft);
 
-    background-color: #111;
+    background-color: #000;
 
     .logo {
         height: 100%;
@@ -51,12 +51,12 @@
         width: 100%;
         max-width: 25rem;
 
-        border: 2px solid var(--invert);
+        border: 2px solid var(--main);
         border-radius: 10px;
-        box-shadow: -5px 5px 5px #0002;
+        box-shadow: -5px 5px 5px var(--shadow_soft);
 
-        color: var(--invert);
-        background-color: var(--main);
+        color: var(--main);
+        background-color: var(--background);
 
         header {
             position: relative;
@@ -69,9 +69,9 @@
                 aspect-ratio: 1;
 
                 border-radius: 50%;
-                box-shadow: 0 0 5px #0002;
+                box-shadow: 0 0 5px var(--shadow_soft);
 
-                background-color: var(--invert);
+                background-color: var(--main);
             }
 
             .info {
@@ -87,7 +87,7 @@
                 h3 {
                     font-size: .9rem;
                     font-weight: 400;
-                    color: #666;
+                    color: var(--gray);
                 }
             }
 
@@ -99,11 +99,11 @@
                 left: 0;
 
                 width: 100%;
-                height: .2rem;
+                height: .1rem;
 
                 border-radius: 20px;
 
-                background-color: var(--invert);
+                background-color: var(--main);
             }
         }
 
@@ -126,7 +126,7 @@
 
                 h3 {
                     font-size: 1rem;
-                    font-weight: 700;
+                    font-weight: 400;
                 }
 
                 button {
@@ -137,8 +137,8 @@
 
                     border-radius: 5px;
 
-                    color: var(--main);
-                    background-color: var(--invert);
+                    color: var(--background);
+                    background-color: var(--main);
                 }
             }
         }

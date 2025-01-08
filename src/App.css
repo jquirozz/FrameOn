@@ -8,21 +8,27 @@
     .screen {
         display: grid;
 
-        padding: clamp(1rem, 5vw, 4rem);
+        padding: var(--space);
 
-        color: var(--invert);
+        color: var(--main);
         background-color: var(--background);
     }
 }
 
+:root {
+    --space: clamp(.75rem, 5vw, 4rem);
+}
+
 .light {
-    --main: #FFF;
-    --invert: #000;
+    --main: #111;
     --background: #FFF;
+    --gray: #888;
+    --shadow_soft: #0002;
 }
 
 .dark {
-    --main: #000;
-    --invert: #EEE;
+    --main: #FFF;
     --background: #222;
+    --gray: #666;
+    --shadow_soft: #0002;
 }

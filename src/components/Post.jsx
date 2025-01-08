@@ -44,14 +44,14 @@ export default function Post({ photo, isOpen, setIsOpen }) {
           </header>
           <section className="info">
             <div className="actions">
-              <button onClick={handleLike}>
-                {like ? <AiFillHeart color="C00" /> : <AiOutlineHeart />}
+              <button onClick={handleLike} className={like ? "liked" : ""}>
+                {like ? <AiFillHeart /> : <AiOutlineHeart />}
               </button>
               <button onClick={handleDownload} disabled>
-                <AiOutlineSave color="DDD" />
+                <AiOutlineSave />
               </button>
               <button onClick={handleShare} disabled>
-                <PiShareNetwork color="DDD" />
+                <PiShareNetwork />
               </button>
             </div>
             <div className="description">

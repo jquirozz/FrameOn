@@ -9,14 +9,14 @@ import { formatNumber } from "../utils/formatNumber";
 
 import "./styles/User.css";
 import { FaXTwitter } from "react-icons/fa6";
-import { BiMessageRounded } from "react-icons/bi";
-import { LiaHandshakeSolid } from "react-icons/lia";
 import { AiOutlineHeart } from "react-icons/ai";
 import {
   IoCameraOutline,
   IoAlbumsOutline,
   IoLogoInstagram,
   IoPlanetOutline,
+  IoFolderOutline,
+  IoChatboxOutline,
 } from "react-icons/io5";
 
 export default function User() {
@@ -42,6 +42,10 @@ function UserInfo({ info }) {
   const handleFollow = () => {
     setIsFollowing(!isFollowing);
   };
+
+  const handleJob = () => {};
+
+  const handleContact = () => {};
 
   const HEADER_INFO = [
     {
@@ -86,11 +90,11 @@ function UserInfo({ info }) {
     <header className="userInfo">
       <section className="main">
         <img src={info.profile_image?.large} />
-        <section>
+        <section className="username">
           <h3>@{info.username}</h3>
           <h2>{info.name}</h2>
         </section>
-        <footer>
+        <section className="social">
           {SOCIAL_LINKS.map(
             (social) =>
               social.exists && (
@@ -106,7 +110,7 @@ function UserInfo({ info }) {
                 </Link>
               )
           )}
-        </footer>
+        </section>
       </section>
       {info.bio && <p>{info.bio}</p>}
       <section className="actions">
@@ -119,18 +123,17 @@ function UserInfo({ info }) {
           ))}
         </header>
         <footer>
-          <button>
-            <BiMessageRounded />
+          <button onClick={handleJob}>
+            <IoFolderOutline />
           </button>
           <button
             onClick={handleFollow}
-            className={isFollowing ? "following" : ""}
+            className={`follow ${isFollowing ? "following" : ""}`}
           >
             <h3>{!isFollowing ? "Follow" : "Unfollow"}</h3>
           </button>
-
-          <button>
-            <LiaHandshakeSolid />
+          <button onClick={handleContact}>
+            <IoChatboxOutline />
           </button>
         </footer>
       </section>
