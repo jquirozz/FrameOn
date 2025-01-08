@@ -17,11 +17,11 @@ export function useCollectionPhotos(collectionId, page = 1) {
       const resPhotos = await unsplash.collections.getPhotos({
         collectionId,
         page,
-        perPage: 30,
+        perPage: 28,
       });
 
       const photoArray = resPhotos.response.results;
-      const updateHasMore = photoArray.length === 30;
+      const updateHasMore = photoArray.length === 28;
       setHasMore(updateHasMore);
       setPhotos((prev) => (page === 1 ? photoArray : [...prev, ...photoArray]));
     } catch (error) {

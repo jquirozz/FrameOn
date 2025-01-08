@@ -17,11 +17,11 @@ export function useCollections(page = 1) {
 
       const resCollections = await unsplash.collections.list({
         page,
-        perPage: 30,
+        perPage: 28,
       });
 
       const collectionsArray = resCollections.response.results;
-      const updateHasMore = collectionsArray.length === 30;
+      const updateHasMore = collectionsArray.length === 28;
       setCollections((prev) =>
         page === 1 ? collectionsArray : [...prev, ...collectionsArray]
       );

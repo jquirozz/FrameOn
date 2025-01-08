@@ -1,31 +1,31 @@
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Link } from "react-router-dom";
 
-import Image from "../Image";
-import Loading from "../Loading";
-import SkeletonGallery from "./SkeletonGallery";
+import Image from "./Image";
+import Loading from "./Loading";
+import GallerySkeleton from "./GallerySkeleton";
 
-import "./CollectionsGallery.css";
+import "./styles/GalleryCollections.css";
 
-export default function CollectionsGallery({
-  collections,
+export default function GalleryCollections({
+  data,
   page,
   setPage,
   hasMore,
   loading,
 }) {
-  if (loading) return <SkeletonGallery />;
+  if (loading) return <GallerySkeleton />;
 
   return (
-    <div className="CollectionsGallery">
+    <div className="GalleryCollections">
       <InfiniteScroll
-        dataLength={collections.length}
+        dataLength={data.length}
         next={() => setPage(page + 1)}
         hasMore={hasMore}
         loader={<Loading />}
       >
         <div className="collections">
-          {collections.map((collection) => (
+          {data.map((collection) => (
             <Link key={collection.id} to={`/collection/${collection.id}`}>
               <Image
                 photo={collection.cover_photo}

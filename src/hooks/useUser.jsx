@@ -11,7 +11,7 @@ const useUserGallery = (endpoint, username, page = 1) => {
   const [loading, setLoading] = useState(true);
 
   const fetchData = useCallback(async () => {
-    const PARAMS = { username, page, orderBy: "latest", perPage: 30 };
+    const PARAMS = { username, page, orderBy: "latest", perPage: 28 };
     let res;
 
     if (page === 1) setLoading(true);
@@ -26,8 +26,7 @@ const useUserGallery = (endpoint, username, page = 1) => {
       }
 
       const resultArray = res.response.results;
-      const updateHasMore = resultArray.length === 30;
-
+      const updateHasMore = resultArray.length === 28;
       setData((prev) => (page === 1 ? resultArray : [...prev, ...resultArray]));
       setHasMore(updateHasMore);
     } catch (error) {
@@ -53,7 +52,6 @@ export function useUserInfo(username) {
 
     try {
       const resInfo = await unsplash.users.get({ username });
-
       setInfo(resInfo.response);
     } catch (error) {
       console.error(error);

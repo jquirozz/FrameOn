@@ -1,10 +1,8 @@
-import "./SkeletonGallery.css";
+import "./styles/GallerySkeleton.css";
 
-export default function SkeletonGallery() {
+export default function GallerySkeleton() {
   return (
-    <div className="SkeletonGallery">
-      <div className="square"></div>
-      <div className="square"></div>
+    <div className="GallerySkeleton">
       <div className="square"></div>
       <div className="square"></div>
       <div className="square"></div>

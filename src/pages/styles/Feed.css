@@ -1,7 +1,7 @@
 .Feed {
     display: grid;
     align-items: start;
-    gap: clamp(1rem, 5vw, 4rem);
+    gap: var(--space);
 
     /* ActionHeader */
 
