@@ -1,264 +1,192 @@
 .User {
-    display: grid;
-    gap: var(--space);
+  display: grid;
+  gap: var(--space);
 
-    .userInfo {
+  .userInfo {
+    display: grid;
+    place-content: center;
+
+    gap: 1.5rem;
+
+    .main {
+      display: grid;
+      place-content: center;
+      gap: 1rem;
+
+      img {
+        margin: auto;
+        overflow: hidden;
+        height: 9rem;
+        aspect-ratio: 1;
+
+        border: 0.25rem solid var(--background);
+        outline: 0.25rem solid var(--main);
+        border-radius: 50%;
+      }
+
+      .username {
+        display: grid;
+        place-content: center;
+        text-align: center;
+
+        h3 {
+          font-size: 0.75rem;
+          font-weight: 400;
+          color: var(--gray);
+        }
+
+        h2 {
+          font-size: 1.5rem;
+          font-weight: 800;
+        }
+      }
+    }
+
+    p {
+      width: 100%;
+      max-width: 600px;
+
+      padding: 0 0.5rem;
+
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 1.75rem;
+
+      a {
         display: grid;
         place-content: center;
 
-        gap: 2rem;
+        width: 3rem;
+        aspect-ratio: 1;
 
-        .main {
-            display: grid;
-            place-content: center;
-            gap: 1rem;
+        box-shadow: 0 0 5px var(--shadow_soft);
+        border-radius: 50%;
 
-            img {
-                margin: auto;
-                overflow: hidden;
-                height: 9rem;
-                aspect-ratio: 1;
+        svg {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
 
-                border: .25rem solid var(--background);
-                outline: .25rem solid var(--main);
-                border-radius: 50%;
-            }
+  .galleryWrap {
+    display: grid;
+    gap: 1rem;
 
-            .social {
-                display: flex;
-                justify-content: space-evenly;
-                gap: 1rem;
+    .galleryNav {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
 
-                a {
-                    display: grid;
-                    place-content: center;
+      a {
+        flex: 1;
+        transition: flex 400ms ease-in-out;
 
-                    width: 3rem;
-                    aspect-ratio: 1;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
 
-                    box-shadow: 0 0 5px var(--shadow_soft);
-                    border-radius: 50%;
+        gap: 0.75rem;
+        padding: 0.75rem 1.25rem;
 
-                    svg {
-                        font-size: 1.5rem;
-                    }
-                }
-            }
+        border-radius: 10px;
+        border: 2px solid var(--main);
 
-            .username {
-                display: grid;
-                place-content: center;
-                text-align: center;
+        color: var(--main);
 
-                h3 {
-                    font-size: .75rem;
-                    font-weight: 400;
-                    color: var(--gray);
-                }
-
-                h2 {
-                    font-size: 1.5rem;
-                    font-weight: 800;
-                }
-            }
+        svg {
+          font-size: 1.25rem;
         }
 
-        p {
-            width: 100%;
-            max-width: 500px;
+        h4 {
+          font-size: 1rem;
+          font-weight: 400;
+          text-transform: capitalize;
+        }
+      }
 
-            padding: 0 .5rem;
+      .active {
+        flex: 5;
+        color: var(--background);
+        background-color: var(--main);
 
-            text-align: center;
-            text-wrap: balance;
+        h4 {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .User {
+    .userInfo {
+      .main {
+        gap: 0.75rem;
+
+        img {
+          height: 7rem;
         }
 
-        .actions {
-            display: grid;
-            align-items: center;
-
-            gap: 1.5rem;
-
-            header {
-                display: flex;
-                align-items: center;
-                justify-content: space-evenly;
-
-
-                div {
-                    display: grid;
-                    place-content: center;
-                    text-align: center;
-
-                    h3 {
-                        font-size: 1rem;
-                        font-weight: 800;
-                    }
-
-                    h4 {
-                        text-transform: capitalize;
-                        font-size: .7rem;
-                        font-weight: 400;
-                        color: var(--gray);
-                    }
-                }
-            }
-
-            footer {
-                display: flex;
-                flex-wrap: wrap;
-                gap: .5rem;
-
-                button {
-                    display: grid;
-                    place-content: center;
-
-                    padding: .5rem .75rem;
-
-                    border-radius: 10px;
-
-                    svg {
-                        font-size: 1.25rem;
-                    }
-                }
-
-                .follow {
-                    flex: 1;
-                    min-width: 180px;
-
-                    border: 2px solid var(--main);
-
-                    color: var(--background);
-                    background-color: var(--main);
-
-                    h3 {
-                        font-size: .75rem;
-                        font-weight: 700;
-                    }
-                }
-
-                .following {
-                    color: var(--main);
-                    background-color: var(--background);
-                }
-            }
+        section {
+          h2 {
+            font-size: 1.25rem;
+          }
         }
+
+        footer {
+          gap: 1.25rem;
+
+          a {
+            width: 2.5rem;
+
+            svg {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+
+      .actions {
+        footer {
+          button {
+            h3 {
+              font-size: 0.75rem;
+            }
+
+            svg {
+              font-size: 1.25rem;
+            }
+          }
+        }
+      }
     }
 
     .galleryWrap {
-        display: grid;
-        gap: 1rem;
+      .galleryNav {
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
 
-        .galleryNav {
-            display: flex;
-            align-items: center;
-            gap: .75rem;
-
-            a {
-                flex: 1;
-                transition: flex 400ms ease-in-out;
-
-                display: grid;
-                grid-template-columns: auto 1fr;
-                align-items: center;
-
-                gap: .75rem;
-                padding: .75rem 1.25rem;
-
-                border-radius: 10px;
-                border: 2px solid var(--main);
-
-                color: var(--main);
-
-                svg {
-                    font-size: 1.25rem;
-                }
-
-                h4 {
-                    font-size: 1rem;
-                    font-weight: 400;
-                    text-transform: capitalize;
-                }
-            }
-
-            .active {
-                flex: 5;
-                color: var(--background);
-                background-color: var(--main);
-
-                h4 {
-                    font-weight: 700;
-                }
-            }
+          h4 {
+            display: none;
+          }
         }
+
+        .active:first-child {
+          justify-content: left;
+        }
+
+        .active:last-child {
+          justify-content: right;
+        }
+      }
     }
-}
-
-
-@media (max-width: 700px) {
-    .User {
-        .userInfo {
-            .main {
-                gap: .75rem;
-
-                img {
-                    height: 7rem;
-                }
-
-                section {
-                    h2 {
-                        font-size: 1.25rem;
-                    }
-                }
-
-                footer {
-                    gap: 1.25rem;
-
-                    a {
-                        width: 2.5rem;
-
-                        svg {
-                            font-size: 1rem;
-                        }
-                    }
-                }
-            }
-
-            .actions {
-                footer {
-                    button {
-                        h3 {
-                            font-size: .75rem;
-                        }
-
-                        svg {
-                            font-size: 1.25rem;
-                        }
-                    }
-                }
-            }
-        }
-
-        .galleryWrap {
-            .galleryNav {
-                a {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    h4 {
-                        display: none;
-                    }
-                }
-
-                .active:first-child {
-                    justify-content: left;
-                }
-
-                .active:last-child {
-                    justify-content: right;
-                }
-            }
-        }
-    }
+  }
 }

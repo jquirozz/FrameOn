@@ -15,8 +15,6 @@ import {
   IoAlbumsOutline,
   IoLogoInstagram,
   IoPlanetOutline,
-  IoFolderOutline,
-  IoChatboxOutline,
 } from "react-icons/io5";
 
 export default function User() {
@@ -37,17 +35,11 @@ export default function User() {
 }
 
 function UserInfo({ info }) {
-  const [isFollowing, setIsFollowing] = useState(info.followed_by_user);
-
-  const handleFollow = () => {
-    setIsFollowing(!isFollowing);
-  };
-
-  const handleJob = () => {};
-
-  const handleContact = () => {};
-
   const HEADER_INFO = [
+    {
+      title: "photos",
+      count: formatNumber(info.total_photos),
+    },
     {
       title: "followers",
       count: formatNumber(info.followers_count),
@@ -55,10 +47,6 @@ function UserInfo({ info }) {
     {
       title: "following",
       count: formatNumber(info.following_count),
-    },
-    {
-      title: "photos",
-      count: formatNumber(info.total_photos),
     },
   ];
 
@@ -94,49 +82,25 @@ function UserInfo({ info }) {
           <h3>@{info.username}</h3>
           <h2>{info.name}</h2>
         </section>
-        <section className="social">
-          {SOCIAL_LINKS.map(
-            (social) =>
-              social.exists && (
-                <Link
-                  to={social.url}
-                  key={social.title}
-                  target="_BLANK"
-                  style={{
-                    background: `linear-gradient(90deg, #${social.colors[0]} 0%, #${social.colors[1]} 50%, #${social.colors[2]} 100%)`,
-                  }}
-                >
-                  {social.icon}
-                </Link>
-              )
-          )}
-        </section>
+      </section>
+      <section className="social">
+        {SOCIAL_LINKS.map(
+          (social) =>
+            social.exists && (
+              <Link
+                to={social.url}
+                key={social.title}
+                target="_BLANK"
+                style={{
+                  background: `linear-gradient(90deg, #${social.colors[0]} 0%, #${social.colors[1]} 50%, #${social.colors[2]} 100%)`,
+                }}
+              >
+                {social.icon}
+              </Link>
+            )
+        )}
       </section>
       {info.bio && <p>{info.bio}</p>}
-      <section className="actions">
-        <header>
-          {HEADER_INFO.map((info) => (
-            <div key={info.title}>
-              <h3>{info.count}</h3>
-              <h4>{info.title}</h4>
-            </div>
-          ))}
-        </header>
-        <footer>
-          <button onClick={handleJob}>
-            <IoFolderOutline />
-          </button>
-          <button
-            onClick={handleFollow}
-            className={`follow ${isFollowing ? "following" : ""}`}
-          >
-            <h3>{!isFollowing ? "Follow" : "Unfollow"}</h3>
-          </button>
-          <button onClick={handleContact}>
-            <IoChatboxOutline />
-          </button>
-        </footer>
-      </section>
     </header>
   );
 }
