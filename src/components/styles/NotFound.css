@@ -1,0 +1,19 @@
+.NotFound {
+  display: grid;
+  place-content: center;
+  text-align: center;
+
+  h1 {
+    font-size: 6rem;
+    font-weight: 900;
+  }
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    padding-bottom: 1rem;
+  }
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}

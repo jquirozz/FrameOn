@@ -1,64 +1,67 @@
 .ActionHeader {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.75rem;
+
+  main {
+    h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--gray);
+    }
+  }
+
+  aside {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 1.75rem;
+    flex-direction: column;
+    gap: 0.5rem;
 
-    main {
-        h1 {
-            font-size: clamp(1.5rem, 10vw, 3.5rem);
-            text-transform: uppercase;
-        }
+    button {
+      flex: 1;
 
-        h2 {
-            font-size: clamp(.75rem, 2.5vw, 1.1rem);
-            color: var(--gray);
-        }
+      min-width: 180px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0.5rem 0.75rem;
+      gap: 0.75rem;
+
+      text-transform: capitalize;
+
+      border: 2px solid var(--main);
+      border-radius: 5px;
+
+      color: var(--background);
+      background-color: var(--main);
+
+      h4 {
+      }
+
+      svg {
+      }
     }
 
-    aside {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        gap: .5rem;
-
-        button {
-            flex: 1;
-
-            min-width: 180px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: .5rem .75rem;
-            gap: .75rem;
-
-            text-transform: capitalize;
-
-            border: 2px solid var(--main);
-            border-radius: 5px;
-
-            color: var(--background);
-            background-color: var(--main);
-
-            h4 {}
-
-            svg {}
-        }
-
-        .active {
-            color: var(--main);
-            background-color: var(--background);
-        }
+    .active {
+      color: var(--main);
+      background-color: var(--background);
     }
+  }
 }
 
 @media (max-width: 800px) {
-    .ActionHeader {
-        aside {
-            flex-direction: row;
-            width: 100%;
-        }
+  .ActionHeader {
+    aside {
+      flex-direction: row;
+      width: 100%;
     }
+  }
 }

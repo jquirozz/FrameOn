@@ -1,60 +1,57 @@
 .Collection {
-    display: grid;
-    gap: var(--space);
+  display: grid;
+  gap: var(--space);
 
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        .title {
-            flex: 1;
+    .title {
+      flex: 1;
 
-            h1 {
-                font-size: 3rem;
-                text-transform: uppercase;
-            }
+      h1 {
+        font-size: 2.5rem;
+      }
 
-            h2 {
-                font-size: 1rem;
-                color: var(--gray);
-            }
-        }
-
-        .profile {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1.25rem;
-
-            aside {
-                text-align: right;
-
-                h2 {
-                    font-size: 1.25rem;
-                    font-weight: 800;
-                    color: var(--main);
-                }
-
-                h3 {
-                    font-size: .75rem;
-                    font-weight: 300;
-                    color: var(--gray);
-                }
-            }
-
-            img {
-                height: 5rem;
-                aspect-ratio: 1;
-                overflow: hidden;
-
-                border: 4px solid #FFF;
-                outline: 2px solid #000;
-                border-radius: 50%;
-                box-shadow: 0 0 5px #0003;
-
-                background-color: var(--invert);
-            }
-        }
+      h2 {
+        font-size: 1rem;
+        color: var(--gray);
+      }
     }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+
+      aside {
+        text-align: right;
+
+        h2 {
+          font-size: 1rem;
+          font-weight: 800;
+          color: var(--main);
+        }
+
+        h3 {
+          font-size: 0.75rem;
+          font-weight: 300;
+          color: var(--gray);
+        }
+      }
+
+      img {
+        height: 5rem;
+        aspect-ratio: 1;
+        overflow: hidden;
+
+        border-radius: 50%;
+        box-shadow: 0 0 5px #0005;
+
+        background-color: var(--invert);
+      }
+    }
+  }
 }

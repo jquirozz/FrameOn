@@ -1,6 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
-*, *::before, *::after {
+:root {
+  --border: 5px;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -11,7 +17,8 @@ body {
   user-select: none;
 }
 
-button, input {
+button,
+input {
   outline: none;
   border: none;
   background-color: transparent;

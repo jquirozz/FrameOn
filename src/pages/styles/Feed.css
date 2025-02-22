@@ -1,9 +1,9 @@
 .Feed {
-    display: grid;
-    align-items: start;
-    gap: var(--space);
+  display: grid;
+  align-items: start;
+  gap: var(--space);
 
-    /* ActionHeader */
+  /* ActionHeader */
 
-    /* PhotosGallery */
+  /* PhotosGallery */
 }

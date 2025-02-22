@@ -25,20 +25,23 @@ export default function GalleryCollections({
         loader={<Loading />}
       >
         <div className="collections">
-          {data.map((collection) => (
-            <Link key={collection.id} to={`/collection/${collection.id}`}>
-              <Image
-                photo={collection.cover_photo}
-                source={collection.cover_photo?.urls?.small_s3}
-              />
-              <footer>
-                <div className="text">
-                  <h2>{collection.title}</h2>
-                  <h3>{collection.total_photos} Photos</h3>
-                </div>
-              </footer>
-            </Link>
-          ))}
+          {data.map(
+            (collection) =>
+              collection.total_photos > 0 && (
+                <Link key={collection.id} to={`/collection/${collection.id}`}>
+                  <Image
+                    photo={collection.cover_photo}
+                    source={collection.cover_photo?.urls?.small_s3}
+                  />
+                  <footer>
+                    <div className="text">
+                      <h2>{collection.title}</h2>
+                      <h3>{collection.total_photos} Photos</h3>
+                    </div>
+                  </footer>
+                </Link>
+              )
+          )}
         </div>
       </InfiniteScroll>
     </div>

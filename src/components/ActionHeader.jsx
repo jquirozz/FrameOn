@@ -1,3 +1,5 @@
+import { formatNumber } from "../utils/formatNumber";
+
 import "./styles/ActionHeader.css";
 import { IoStarOutline, IoCaretDown } from "react-icons/io5";
 
@@ -5,7 +7,7 @@ export default function ActionHeader({ query, total, orderBy, setOrderBy }) {
   const title = query || "Frame on";
   const subtitle = query
     ? total > 0
-      ? `${total} Photos`
+      ? `${formatNumber(total)} Photos`
       : "Loading..."
     : "Capture. Share. Inspire.";
 

@@ -5,8 +5,7 @@
   .userInfo {
     display: grid;
     place-content: center;
-
-    gap: 1.5rem;
+    gap: 1.25rem;
 
     .main {
       display: grid;
@@ -15,13 +14,13 @@
 
       img {
         margin: auto;
-        overflow: hidden;
-        height: 9rem;
+        height: 10rem;
         aspect-ratio: 1;
 
-        border: 0.25rem solid var(--background);
-        outline: 0.25rem solid var(--main);
+        box-shadow: 0 0 5px #000;
         border-radius: 50%;
+
+        background-color: var(--main);
       }
 
       .username {
@@ -30,7 +29,7 @@
         text-align: center;
 
         h3 {
-          font-size: 0.75rem;
+          font-size: 0.8rem;
           font-weight: 400;
           color: var(--gray);
         }
@@ -38,6 +37,7 @@
         h2 {
           font-size: 1.5rem;
           font-weight: 800;
+          text-transform: uppercase;
         }
       }
     }
@@ -55,7 +55,7 @@
     .social {
       display: flex;
       justify-content: center;
-      gap: 1.75rem;
+      gap: 1.5rem;
 
       a {
         display: grid;
@@ -64,7 +64,7 @@
         width: 3rem;
         aspect-ratio: 1;
 
-        box-shadow: 0 0 5px var(--shadow_soft);
+        box-shadow: 0 0 5px #0005;
         border-radius: 50%;
 
         svg {
@@ -84,7 +84,6 @@
       gap: 0.75rem;
 
       a {
-        flex: 1;
         transition: flex 400ms ease-in-out;
 
         display: grid;
@@ -93,6 +92,8 @@
 
         gap: 0.75rem;
         padding: 0.75rem 1.25rem;
+
+        min-width: 200px;
 
         border-radius: 10px;
         border: 2px solid var(--main);
@@ -111,7 +112,7 @@
       }
 
       .active {
-        flex: 5;
+        flex: 1;
         color: var(--background);
         background-color: var(--main);
 
