@@ -79,10 +79,10 @@ function UserInfo({ info }) {
       <section className="main">
         <img src={info.profile_image?.large} />
         <section className="username">
-          <h3>@{info.username}</h3>
           <h2>{info.name}</h2>
         </section>
       </section>
+      {info.bio && <p>{info.bio}</p>}
       <section className="social">
         {SOCIAL_LINKS.map(
           (social) =>
@@ -100,7 +100,6 @@ function UserInfo({ info }) {
             )
         )}
       </section>
-      {info.bio && <p>{info.bio}</p>}
     </header>
   );
 }
@@ -135,6 +134,7 @@ function UserGalleryNav({ info }) {
             >
               {option.icon}
               <h4>{option.title}</h4>
+              <h5>{`[ ${option.total} ]`}</h5>
             </NavLink>
           )
       )}

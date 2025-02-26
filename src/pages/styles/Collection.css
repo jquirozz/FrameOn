@@ -1,5 +1,6 @@
 .Collection {
   display: grid;
+  align-items: start;
   gap: var(--space);
 
   header {
@@ -11,11 +12,13 @@
       flex: 1;
 
       h1 {
-        font-size: 2.5rem;
+        font-size: 2.25rem;
+        text-transform: uppercase;
       }
 
       h2 {
         font-size: 1rem;
+        font-weight: 400;
         color: var(--gray);
       }
     }
@@ -30,13 +33,13 @@
         text-align: right;
 
         h2 {
-          font-size: 1rem;
+          font-size: 1.25rem;
           font-weight: 800;
           color: var(--main);
         }
 
         h3 {
-          font-size: 0.75rem;
+          font-size: 0.8rem;
           font-weight: 300;
           color: var(--gray);
         }

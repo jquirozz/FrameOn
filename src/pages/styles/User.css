@@ -10,15 +10,15 @@
     .main {
       display: grid;
       place-content: center;
-      gap: 1rem;
+      gap: 1.5rem;
 
       img {
         margin: auto;
-        height: 10rem;
+        height: 12rem;
         aspect-ratio: 1;
 
-        box-shadow: 0 0 5px #000;
-        border-radius: 50%;
+        box-shadow: 0 0 5px #000a;
+        border-radius: var(--border);
 
         background-color: var(--main);
       }
@@ -28,16 +28,10 @@
         place-content: center;
         text-align: center;
 
-        h3 {
-          font-size: 0.8rem;
-          font-weight: 400;
-          color: var(--gray);
-        }
-
         h2 {
           font-size: 1.5rem;
           font-weight: 800;
-          text-transform: uppercase;
+          text-transform: capitalize;
         }
       }
     }
@@ -87,7 +81,7 @@
         transition: flex 400ms ease-in-out;
 
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: auto 1fr auto;
         align-items: center;
 
         gap: 0.75rem;
@@ -95,7 +89,7 @@
 
         min-width: 200px;
 
-        border-radius: 10px;
+        border-radius: var(--border);
         border: 2px solid var(--main);
 
         color: var(--main);
@@ -109,6 +103,10 @@
           font-weight: 400;
           text-transform: capitalize;
         }
+
+        h5 {
+          display: none;
+        }
       }
 
       .active {
@@ -118,6 +116,9 @@
 
         h4 {
           font-weight: 700;
+        }
+        h5 {
+          display: block;
         }
       }
     }
