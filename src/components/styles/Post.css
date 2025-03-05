@@ -8,7 +8,7 @@
   img {
     width: 4rem;
     aspect-ratio: 1;
-    border-radius: 50%;
+    border-radius: var(--border);
 
     background-color: var(--main);
   }

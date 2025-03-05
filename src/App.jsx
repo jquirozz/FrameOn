@@ -11,7 +11,6 @@ import NavBar from "./components/NavBar";
 import NotFound from "./components/NotFound";
 
 import Feed from "./pages/Feed";
-import Collections from "./pages/Collections";
 import Collection from "./pages/Collection";
 
 import User from "./pages/User";
@@ -46,8 +45,6 @@ export default function App() {
 
               <Route index element={<RedirectToPhotos />} />
             </Route>
-
-            <Route path="/collections" element={<Collections />} />
 
             <Route path="/collection/:collectionId" element={<Collection />} />
           </Routes>

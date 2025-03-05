@@ -27,6 +27,13 @@ export default function GalleryPhotos({
 
   if (loading) return <GallerySkeleton />;
 
+  if (data.length === 0)
+    return (
+      <div className="GalleryPhotos">
+        <p>Ops! Looks like there are no photos available</p>
+      </div>
+    );
+
   return (
     <div className="GalleryPhotos">
       <InfiniteScroll

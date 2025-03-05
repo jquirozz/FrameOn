@@ -3,21 +3,21 @@
   align-items: start;
   gap: var(--space);
 
+  width: 100%;
+
   header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
 
     .title {
       flex: 1;
 
       h1 {
-        font-size: 2.25rem;
-        text-transform: uppercase;
+        font-size: 2rem;
       }
 
       h2 {
-        font-size: 1rem;
+        font-size: 0.8rem;
         font-weight: 400;
         color: var(--gray);
       }
@@ -50,7 +50,7 @@
         aspect-ratio: 1;
         overflow: hidden;
 
-        border-radius: 50%;
+        border-radius: var(--border);
         box-shadow: 0 0 5px #0005;
 
         background-color: var(--invert);

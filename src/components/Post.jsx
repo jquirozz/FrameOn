@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import Image from "./Image";
@@ -24,9 +24,19 @@ export default function Post({ photo, isOpen, setIsOpen }) {
 
   const handleDownload = () => {};
 
-  const handleClosePhoto = () => {
-    setIsOpen(false);
+  const handleClosePhoto = (event) => {
+    if (event.key === "Escape" || event.type === "click") {
+      setIsOpen(false);
+    }
   };
+
+  useEffect(() => {
+    window.addEventListener("keydown", handleClosePhoto);
+
+    return () => {
+      window.removeEventListener("keydown", handleClosePhoto);
+    };
+  }, []);
 
   return (
     <section className={`Post ${isOpen ? "open" : "close"}`}>

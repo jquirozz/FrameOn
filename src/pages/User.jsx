@@ -5,8 +5,6 @@ import Loading from "../components/Loading";
 
 import { useUserInfo } from "../hooks/useUser";
 
-import { formatNumber } from "../utils/formatNumber";
-
 import "./styles/User.css";
 import { FaXTwitter } from "react-icons/fa6";
 import { AiOutlineHeart } from "react-icons/ai";
@@ -35,21 +33,6 @@ export default function User() {
 }
 
 function UserInfo({ info }) {
-  const HEADER_INFO = [
-    {
-      title: "photos",
-      count: formatNumber(info.total_photos),
-    },
-    {
-      title: "followers",
-      count: formatNumber(info.followers_count),
-    },
-    {
-      title: "following",
-      count: formatNumber(info.following_count),
-    },
-  ];
-
   const SOCIAL_LINKS = [
     {
       title: "instagram",
@@ -125,19 +108,16 @@ function UserGalleryNav({ info }) {
 
   return (
     <nav className="galleryNav">
-      {NAV_OPTIONS.map(
-        (option) =>
-          option.total > 0 && (
-            <NavLink
-              to={`/user/${info.username}/${option.title}`}
-              key={option.title}
-            >
-              {option.icon}
-              <h4>{option.title}</h4>
-              <h5>{`[ ${option.total} ]`}</h5>
-            </NavLink>
-          )
-      )}
+      {NAV_OPTIONS.map((option) => (
+        <NavLink
+          to={`/user/${info.username}/${option.title}`}
+          key={option.title}
+        >
+          {option.icon}
+          <h4>{option.title}</h4>
+          <h5>{`[ ${option.total} ]`}</h5>
+        </NavLink>
+      ))}
     </nav>
   );
 }

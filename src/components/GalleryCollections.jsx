@@ -16,6 +16,13 @@ export default function GalleryCollections({
 }) {
   if (loading) return <GallerySkeleton />;
 
+  if (data.length === 0)
+    return (
+      <div className="GalleryPhotos">
+        <p>Ops! Looks like there are no collections available</p>
+      </div>
+    );
+
   return (
     <div className="GalleryCollections">
       <InfiniteScroll
@@ -29,6 +36,7 @@ export default function GalleryCollections({
             (collection) =>
               collection.total_photos > 0 && (
                 <Link key={collection.id} to={`/collection/${collection.id}`}>
+                  {}
                   <Image
                     photo={collection.cover_photo}
                     source={collection.cover_photo?.urls?.small_s3}
